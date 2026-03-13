@@ -2,9 +2,9 @@
 A &lt;3KB freestanding C library for 8086 DOS.
 
 ## Motivation: 
-Memory footprint reduction compared to Watcom C Compiler libc for DOS programs - 70-90% smaller than Watcom libc.
+Memory footprint reduction compared to Watcom C Compiler libc for DOS programs - 70-80% smaller than Watcom libc.
 
-### Table 1. Compare the code size impact of using **DOSLIBC** versus the standard **Open Watcom `clibl.lib` + `math87l.lib`**.
+Comparing the code size impact of using **DOSLIBC** versus the standard **Open Watcom `clibl.lib` + `math87l.lib`**.
 
 | Module | Feature Set | Stock Watcom (Bytes) | DOSLIBC (Bytes) | Savings |
 | :--- | :--- | :---: | :---: | :---: |
@@ -42,7 +42,9 @@ USE_DOSLIBC
 USE_DOSLIBC_FLOAT_PRINTF
 ```
 Enables support for %f, %e, and %E in printf/fprintf.
+
 Cost: +~360 bytes.
+
 Default: Disabled (Integer-only printing).
 
 ### 3. Enable File I/O
@@ -50,7 +52,10 @@ Default: Disabled (Integer-only printing).
 USE_DOSLIBC_FILE_IO
 ```
 Enables fopen, fclose, fread, fwrite, and stream buffering.
-Cost: +~
+
+Cost: +~865 bytes.
+
+Default:
 
 ## Example:
 (Look at the test harness files for more examples)
