@@ -14,6 +14,14 @@ Comparing the code size impact of using **DOSLIBC** versus the standard **Open W
 | **TOTAL** | **Full Feature Set** | **~13,039** | **2,694** | **~79%** |
 | **TOTAL** | **Integer/File Only** | **~9,639** | **2,332** | **~76%** |
 
+```mermaid
+xychart-beta
+    title "Library Size Comparison: Stock Watcom(blue) vs. DOSLIBC(green)"
+    x-axis ["Core Only", "Int + Files", "Full (w/ Floats)"]
+    y-axis "Size (KB)" 0 --> 14
+    bar [3.8, 5.8, 13.0]
+    bar [0.9, 1.5, 2.7]
+```
 ## Replacements:
 
 | Standard Watcom Header | DOSLIBC Equivalent |
