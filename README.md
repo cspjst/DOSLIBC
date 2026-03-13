@@ -55,7 +55,7 @@ Enables fopen, fclose, fread, fwrite, and stream buffering.
 
 Cost: +~865 bytes.
 
-Default:
+Default: Disabled (Console only).
 
 ## Example:
 (Look at the test harness files for more examples)
