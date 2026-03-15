@@ -1,7 +1,7 @@
 # DOSLIBC
 _&lt;3KB freestanding C library for 8086 DOS._
 
-## Comparison:
+![LOGOS/Size Comparison libc DOSLIBC vs Watcom.png](https://github.com/cspjst/RESOURCE/blob/main/LOGOS/Size%20Comparison%20libc%20DOSLIBC%20vs%20Watcom.png)
 
 
 
