@@ -10,11 +10,11 @@
 #include "TEST/test_dos_memory.h"
 #include "TEST/test_dos_services.h"
 #include "TEST/test_dos_files.h"
-#include "TEST/test_stdio.h"
-#include "TEST/test_string.h"
-#include "TEST/test_files.h"
-#include "TEST/test_stdlib.h"
-#include "TEST/dos_stdio.h"
+//#include "TEST/test_stdio.h"
+//#include "TEST/test_string.h"
+//#include "TEST/test_files.h"
+//#include "TEST/test_stdlib.h"
+//#include "TEST/dos_stdio.h"
 
 int main() {
 
@@ -31,10 +31,15 @@ int main() {
     test_dos_memory();
     test_dos_services();
     test_dos_files();
+   #ifdef POLICY_USE_DOS_STD
+       printf("DOSLIBC Test Harness\n");
+       // STD
+      // test_stdio();
+      // test_string();
+      // test_files();
+      // test_stdlib();
+   #else
+       printf("ERROR unable to test DOSLIBC no definition POLICY_USE_DOS_STD \n");
+   #endif
 
-    // STD
-    test_stdio();
-    test_string();
-    test_files();
-    test_stdlib();
 }

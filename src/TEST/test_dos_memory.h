@@ -3,13 +3,15 @@
 
 #ifdef POLICY_USE_DOS_STD
     #include "../STD/dos_stdio.h"
+    #include "../STD/dos_stdint.h"
     #include "../STD/dos_assert.h"
 #else
     #include <stdio.h>
+    #include <stdint.h>
     #include <assert.h>
 #endif
 
-#include "dos_memory_services.h"
+#include "../DOS/dos_memory_services.h"
 
 void test_allocate_memory(void) {
 
@@ -47,8 +49,6 @@ void test_allocate_memory(void) {
     assert(err == DOS_SUCCESS);
     assert(far_seg != 0);
     printf("far-output ok\n");
-
-    printf("dos_allocate_memory_blocks() tests passed\n\n");
 }
 
 void test_free_memory(void) {
@@ -82,8 +82,6 @@ void test_free_memory(void) {
     err = dos_free_allocated_memory_blocks(0x1234);
     assert(err == DOS_SUCCESS || err != DOS_SUCCESS);  // Just verify it returns
     printf("free-unallocated ok\n");
-
-    printf("dos_free_allocated_memory_blocks() tests passed\n\n");
 }
 
 void test_get_free_memory(void) {
@@ -124,8 +122,6 @@ void test_get_free_memory(void) {
     // Verify returned value is reasonable (not obviously corrupted)
     assert(free < 0xF000);  // Sanity: shouldn't be near segment limit
     printf("sanity ok\n");
-
-    printf("dos_get_free_memory_paragraphs() tests passed\n\n");
 }
 
 void test_dos_memory(void) {
@@ -135,6 +131,8 @@ void test_dos_memory(void) {
     test_allocate_memory();
     test_free_memory();
     test_get_free_memory();
+
+    printf("DOS memory functions tests passed\n\n");
 }
 
 #endif

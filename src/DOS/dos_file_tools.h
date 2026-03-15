@@ -1,5 +1,5 @@
 /**
- * @brief Extra functions, missing from DOS, that assist the programmer.
+ * @brief Extra file functions, missing from DOS, that assist the programmer.
  */
 #ifndef DOS_FILE_TOOLS_H
 #define DOS_FILE_TOOLS_H

@@ -16,6 +16,7 @@
 #include "../BIOS/bios_keyboard_constants.h"
 
 void test_bios_memory(void) {
+    printf("Testing BIOS memory functions...\n");
     unsigned short base_memory;
     unsigned long total_bytes;
 
@@ -37,10 +38,11 @@ void test_bios_memory(void) {
     } else {
         printf("FAIL: Impossible value (%u KB)\n", base_memory);
     }
+    printf("BIOS memory functions tests passed\n\n");
 }
 
 void test_bios_keys() {
-    printf("Test BIOS...\n");
+    printf("Testing KEY functions...\n");
     assert(sizeof(unsigned char) == 1);
     assert(sizeof(unsigned short) == 2);
     assert(sizeof(unsigned int) == 2);
@@ -51,7 +53,7 @@ void test_bios_keys() {
     int key_count = 0;
 
     printf("Press any key to test (ESC to quit, F1 for help)\n");
-    printf("----------------------------------------\n");
+    printf("------------------------------------------------\n");
 
     // Show initial shift states
     bios_get_keyboard_flags(&flags);
@@ -155,6 +157,7 @@ void test_bios_keys() {
             break;
         }
     }
+    printf("BIOS key functions tests passed\n\n");
 }
 
 

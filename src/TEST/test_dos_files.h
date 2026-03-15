@@ -13,15 +13,15 @@
     #include <assert.h>
 #endif
 
-#include "dos_file_tools.h"
-#include "dos_file_services.h"
-#include "dos_error_types.h"
-#include "dos_file_services.h"
+#include "../DOS/dos_file_tools.h"
+#include "../DOS/dos_file_services.h"
+#include "../DOS/dos_error_types.h"
+#include "../DOS/dos_file_services.h"
 
 
 
 void test_dos_files() {
-    printf("Testing DOS File Functions...\n");
+    printf("Testing DOS file functions...\n");
 
     // Test 1: File creation and basic operations
     printf("1. Testing file creation...\n");

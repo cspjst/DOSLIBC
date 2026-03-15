@@ -9,14 +9,14 @@
     #include <assert.h>
 #endif
 
-#include "dos_services.h"
+#include "../DOS/dos_services.h"
 
 /* Safe interrupt vectors for testing (60h-67h are user-available in DOS) */
 #define TEST_VECTOR_1 0x60
 #define TEST_VECTOR_2 0x61
 
 void test_interrupt_vectors(void) {
-    printf("=== Testing interrupt vector get/set C99 (large model) ===\n");
+    printf("Testing DOS vector functions...\n");
 
     // Save original vectors first (critical for system stability)
     void* orig_vec1 = dos_get_interrupt_vector(TEST_VECTOR_1);
@@ -59,14 +59,17 @@ void test_interrupt_vectors(void) {
     dos_set_interrupt_vector(TEST_VECTOR_1, orig_vec1);
     printf("restore-far ok\n");
 
-    printf("interrupt vector tests passed\n\n");
+    printf("DOS vector functions tests passed\n\n");
 }
 
 void test_terminate_process(void) {
-    printf("Terminate y/n\n");
+    printf("Test DOS Terminate with return code 42 y/n\n");
     char yn = getchar();
     if(yn == 'y') {
         dos_terminate_process_with_return_code(42);
+    }
+    else {
+       printf("Test DOS Terminate function deferred.\n\n");
     }
 }
 
