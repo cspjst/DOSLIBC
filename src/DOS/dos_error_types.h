@@ -10,7 +10,7 @@
 typedef uint16_t dos_error_code_t;
 
 /**
-* So can raise classic 12h codes
+* Classic 12h codes
 */
 typedef enum {
     DOS_SUCCESS = 0,

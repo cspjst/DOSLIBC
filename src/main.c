@@ -7,14 +7,14 @@
 #endif
 
 #include "TEST/test_bios.h"
-//#include "TEST/test_dos_memory.h"
-//#include "TEST/test_dos_services.h"
-//#include "TEST/test_dos_files.h"
-//#include "TEST/test_stdio.h"
-//#include "TEST/test_string.h"
-//#include "TEST/test_files.h"
-//#include "TEST/test_stdlib.h"
-//#include "TEST/dos_stdio.h"
+#include "TEST/test_dos_memory.h"
+#include "TEST/test_dos_services.h"
+#include "TEST/test_dos_files.h"
+#include "TEST/test_stdio.h"
+#include "TEST/test_string.h"
+#include "TEST/test_files.h"
+#include "TEST/test_stdlib.h"
+#include "TEST/dos_stdio.h"
 
 int main() {
 
@@ -28,13 +28,13 @@ int main() {
     test_bios_keys();
 
     // DOS
-    //test_dos_memory();
-    //test_dos_services();
-    //test_dos_files();
+    test_dos_memory();
+    test_dos_services();
+    test_dos_files();
 
     // STD
-    //test_stdio();
-    //test_string();
-    //test_files();
-    //test_stdlib();
+    test_stdio();
+    test_string();
+    test_files();
+    test_stdlib();
 }

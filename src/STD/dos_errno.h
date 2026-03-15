@@ -1,5 +1,5 @@
-#ifndef TINY_ERRNO_H
-#define TINY_ERRNO_H
+#ifndef DOS_ERRNO_H
+#define DOS_ERRNO_H
 
 #include "../DOS/dos_error_types.h"
 

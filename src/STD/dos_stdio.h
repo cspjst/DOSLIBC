@@ -1,23 +1,10 @@
+#ifndef __LARGE__
+    #error "This module requires large memory model (ie far data pointers)"
+#endif
+
 /**
- * @file dos_stdio.h
  * @brief Minimal C99 stdio implementation for DOS environments
- *
- * MEMORY SAVING DESIGN:
- * - Direct DOS interrupt calls avoid libc overhead
- * - Macros for simple functions (putc, putchar) eliminate call overhead
- * - No buffering - direct character-by-character I/O
- * - Minimal error checking focused on essential cases
- * - Recursive printf helpers avoid large format string buffers
- * - uint16_t mode parsing in fopen avoids string processing
- *
- * FILE TYPE PUNNING:
- * - FILE is typedef'd as dos_file_handle_t (uint16_t)
- * - fopen returns (FILE*)handle - casting integer to pointer
- * - All functions cast back: (dos_file_handle_t)(uintptr_t)stream
- * - This maintains standard C FILE* interface while using simple integers
- * - stdin/stdout/stderr are handles 0,1,2 cast to FILE*
- *
- * COMPROMISES:
+ * @note
  * - No file buffering (performance tradeoff)
  * - Limited format specifiers in printf
  * - No locale support
@@ -26,10 +13,6 @@
  */
 #ifndef DOS_STDIO_H
 #define DOS_STDIO_H
-
-#ifndef __LARGE__
-    #error "This module requires large memory model (ie far data pointers)"
-#endif
 
 #include "../DOS/dos_file_services.h"
 #include "dos_stddef.h"
@@ -79,7 +62,7 @@ int fscanf(FILE* stream, const char* format, ...);
 void perror(const char *s);
 
 // file operations
-#ifdef DOS_STDIO_FILE_HANDLING
+#ifdef USE_DOSLIBC_FILE_IO
 
 FILE* fopen(const char* filename, const char* mode);
 size_t fread(void* ptr, size_t size, size_t count, FILE* stream);
@@ -88,6 +71,6 @@ int fseek(FILE* stream, long offset, int origin);
 long ftell(FILE* stream);
 int fclose(FILE* stream);
 
-#endif // DOS_STDIO_FILE_HANDLING
+#endif // USE_DOSLIBC_FILE_IO
 
 #endif // DOS_STDIO_H
