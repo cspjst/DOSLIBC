@@ -362,7 +362,7 @@ void test_dos_files() {
     assert(dos_file_ext(NULL) == NULL);
     printf("NULL -> NULL\n");
 
-    printf("ALL TESTS PASSED\n");
+    printf("DOS file functions tests passed\n\n");
 }
 
 #endif

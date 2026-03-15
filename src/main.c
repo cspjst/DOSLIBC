@@ -34,10 +34,10 @@ int main() {
    #ifdef POLICY_USE_DOS_STD
        printf("DOSLIBC Test Harness\n");
        // STD
-      // test_stdio();
-      // test_string();
-      // test_files();
-      // test_stdlib();
+       // test_stdio();
+       // test_string();
+       // test_files();
+       // test_stdlib();
    #else
        printf("ERROR unable to test DOSLIBC no definition POLICY_USE_DOS_STD \n");
    #endif
