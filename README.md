@@ -3,7 +3,7 @@ _&lt;3KB freestanding C library for 8086 DOS._
 
 ![LOGOS/Size Comparison libc DOSLIBC vs Watcom.png](https://github.com/cspjst/RESOURCE/blob/main/LOGOS/Size%20Comparison%20libc%20DOSLIBC%20vs%20Watcom.png)
 
-
+(sacrificing _some_ printf functionality)
 
 ## Motivation: 
 Memory footprint reduction compared to Watcom C Compiler libc for DOS programs - 70-80% smaller than Watcom libc.
