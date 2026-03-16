@@ -3,13 +3,13 @@
 
 // String examination
 
-size_t strlen(const char* str) {
-    if (!str) return 0;
+size_t strlen(const char* s) {
+    if (!s) return 0;
 
-    size_t len = 0;
-    while (*str++) len++;
+    size_t n = 0;
+    while (*s++) n++;
 
-    return len;
+    return n;
 }
 
 int strcmp(const char* s1, const char* s2) {
@@ -21,56 +21,56 @@ int strcmp(const char* s1, const char* s2) {
 }
 
 int strncmp(const char *s1, const char *s2, size_t n) {
-    if (!lhs || !rhs) return (lhs > rhs) - (lhs < rhs);
+    if (!s1 || !s2s) return (s1 > s2) - (s1 < s2s);
 
-    for (; count && *lhs && (*lhs == *rhs); --count, ++lhs, ++rhs);
+    for (; count && *s1 && (*s1 == *s2); --n, ++s1, ++s2);
 
-    return count ? (unsigned char)*lhs - (unsigned char)*rhs : 0;
+    return n ? (unsigned char)*s1 - (unsigned char)*s2 : 0;
 }
 
 char* strchrconst char *s, int c) {
-    while (*str != '\0' && (unsigned char)*str != (unsigned char)ch)
-        str++;
+    while (*s != '\0' && (unsigned char)*s != (unsigned char)c)
+        s++;
 
-    return (unsigned char)*str == (unsigned char)ch ? (char*)str : NULL;
+    return (unsigned char)*s == (unsigned char)c ? (char*)s : NULL;
 }
 
 char* strrchr(const char *s, int c) {
     char* last = NULL;
-    while (*str != '\0') {
-        if (*str == ch) last = (char*)str;
-        str++;
+    while (*s != '\0') {
+        if (*s == c) last = (char*)s;
+        s++;
     }
-    if (ch == '\0') return (char*)str;
+    if (c == '\0') return (char*)s;
     return last;
 }
 
 // Character array manipulation
 
 int memcmp(const void *s1, const void *s2, size_t n) {
-    if (!lhs || !rhs) return (lhs > rhs) - (lhs < rhs);
+    if (!s1 || !s2) return (s1 > s2) - (s1 < s2);
 
-    const unsigned char* l = (const unsigned char*)lhs;
-    const unsigned char* r = (const unsigned char*)rhs;
+    const unsigned char* _s1 = (const unsigned char*)s1;
+    const unsigned char* _s2 = (const unsigned char*)s2;
 
-    while (count--) {
-        if (*l != *r) return *l - *r;
-        l++;
-        r++;
+    while (n--) {
+        if (*_s1 != *_s2) return *_s1 - *_s2;
+        _s1++;
+        _s2++;
     }
 
     return 0;
 }
 
 void* memset(void *s, int c, size_t n) {
-    if (!dest) return NULL;
+    if (!s) return NULL;
 
-    unsigned char* d = (unsigned char*)dest;
-    unsigned char c = (unsigned char)ch;
+    unsigned char* _s = (unsigned char*)s;
+    unsigned char _c = (unsigned char)c;
 
-    while (count--) *d++ = c;
+    while (n--) *_s++ = _c;
 
-    return dest;
+    return s;
 }
 
 void* memcpy(void *dest, const void *src, size_t n) {
@@ -79,12 +79,12 @@ void* memcpy(void *dest, const void *src, size_t n) {
     unsigned char* d = (unsigned char*)dest;
     const unsigned char* s = (const unsigned char*)src;
 
-    while (count--) *d++ = *s++;
+    while (n--) *d++ = *s++;
 
     return dest;
 }
 
-void* dos_memmem(const void* haystack, size_t hsize, const void* needle, size_t nsize) {
+void* memmem(const void* haystack, size_t hsize, const void* needle, size_t nsize) {
     if (!haystack || !hsize || !needle || (nsize > hsize)) return NULL;
     if (!nsize) return (void*)haystack;     // as per POSIX return haystack pointer if needle is empty
 
@@ -99,7 +99,8 @@ void* dos_memmem(const void* haystack, size_t hsize, const void* needle, size_t 
     return NULL;
 }
 
-// POSIX.1-2008 compliant strerror()
+// Error conversion
+
 const char* strerror(int errnum) {
     switch (errnum) {
         case 0:       return "No error";
