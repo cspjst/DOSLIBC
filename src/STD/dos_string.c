@@ -20,7 +20,7 @@ int strcmp(const char* s1, const char* s2) {
     return (unsigned char)*s1 - (unsigned char)*s2;
 }
 
-int strncmp(const char* lhs, const char* rhs, size_t count) {
+int strncmp(const char *s1, const char *s2, size_t n) {
     if (!lhs || !rhs) return (lhs > rhs) - (lhs < rhs);
 
     for (; count && *lhs && (*lhs == *rhs); --count, ++lhs, ++rhs);
@@ -28,14 +28,14 @@ int strncmp(const char* lhs, const char* rhs, size_t count) {
     return count ? (unsigned char)*lhs - (unsigned char)*rhs : 0;
 }
 
-char* strchr(const char* str, int ch) {
+char* strchrconst char *s, int c) {
     while (*str != '\0' && (unsigned char)*str != (unsigned char)ch)
         str++;
 
     return (unsigned char)*str == (unsigned char)ch ? (char*)str : NULL;
 }
 
-char* strrchr(const char* str, int ch) {
+char* strrchr(const char *s, int c) {
     char* last = NULL;
     while (*str != '\0') {
         if (*str == ch) last = (char*)str;
@@ -47,7 +47,7 @@ char* strrchr(const char* str, int ch) {
 
 // Character array manipulation
 
-int memcmp(const void* lhs, const void* rhs, size_t count) {
+int memcmp(const void *s1, const void *s2, size_t n) {
     if (!lhs || !rhs) return (lhs > rhs) - (lhs < rhs);
 
     const unsigned char* l = (const unsigned char*)lhs;
@@ -62,7 +62,7 @@ int memcmp(const void* lhs, const void* rhs, size_t count) {
     return 0;
 }
 
-void* memset(void* dest, int ch, size_t count) {
+void* memset(void *s, int c, size_t n) {
     if (!dest) return NULL;
 
     unsigned char* d = (unsigned char*)dest;
@@ -73,7 +73,7 @@ void* memset(void* dest, int ch, size_t count) {
     return dest;
 }
 
-void* memcpy(void* dest, const void* src, size_t count) {
+void* memcpy(void *dest, const void *src, size_t n) {
     if (!dest || !src) return NULL;
 
     unsigned char* d = (unsigned char*)dest;
@@ -82,6 +82,21 @@ void* memcpy(void* dest, const void* src, size_t count) {
     while (count--) *d++ = *s++;
 
     return dest;
+}
+
+void* dos_memmem(const void* haystack, size_t hsize, const void* needle, size_t nsize) {
+    if (!haystack || !hsize || !needle || (nsize > hsize)) return NULL;
+    if (!nsize) return (void*)haystack;     // as per POSIX return haystack pointer if needle is empty
+
+    const unsigned char* hay = (const unsigned char*)haystack;
+    const unsigned char* ndl = (const unsigned char*)needle;
+
+    while(nsize <= hsize--) {
+        if(dos_memcmp(hay, ndl, nsize) == 0) return (void*)hay;
+        hay++;
+    }
+
+    return NULL;
 }
 
 // POSIX.1-2008 compliant strerror()
