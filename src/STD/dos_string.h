@@ -13,7 +13,7 @@
 // strdup // allocates a copy of a string - must free
 
 // String examination
-size_t strlen(const char* str);                 // returns the length of a given string
+size_t strlen(const char* s);                 // returns the length of a given string
 int strcmp(const char* s1, const char* s2);     // compares two strings
 int strncmp(const char *s1, const char *s2, size_t n); // compares a certain amount of characters of two strings
 char* strchr(const char *s, int c);          // finds the first occurrence of a character
