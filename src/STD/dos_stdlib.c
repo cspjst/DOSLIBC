@@ -1,11 +1,9 @@
+#ifdef USE_DOSLIBC
+
 #include "dos_stdlib.h"
 #include "../DOS/dos_memory_services.h"
 
-#ifdef USE_DOSLIBC
-    #include "dos_assert.h"
-#else
-    #include <assert.h>
-#endif
+#include "dos_assert.h"
 
 void* dos_malloc(size_t size) {
     dos_address_t addr = {0};
@@ -44,3 +42,5 @@ void* dos_calloc(size_t n, size_t size) {         // overflow
     }
     return NULL;
 }
+
+#endif

@@ -1,3 +1,5 @@
+#ifdef USE_DOSLIBC
+
 #include "dos_string.h"
 #include "dos_errno.h"
 
@@ -21,14 +23,14 @@ int strcmp(const char* s1, const char* s2) {
 }
 
 int strncmp(const char *s1, const char *s2, size_t n) {
-    if (!s1 || !s2s) return (s1 > s2) - (s1 < s2s);
+    if (!s1 || !s2) return (s1 > s2) - (s1 < s2);
 
-    for (; count && *s1 && (*s1 == *s2); --n, ++s1, ++s2);
+    for (; n && *s1 && (*s1 == *s2); --n, ++s1, ++s2);
 
     return n ? (unsigned char)*s1 - (unsigned char)*s2 : 0;
 }
 
-char* strchrconst char *s, int c) {
+char* strchr(const char *s, int c) {
     while (*s != '\0' && (unsigned char)*s != (unsigned char)c)
         s++;
 
@@ -92,7 +94,7 @@ void* memmem(const void* haystack, size_t hsize, const void* needle, size_t nsiz
     const unsigned char* ndl = (const unsigned char*)needle;
 
     while(nsize <= hsize--) {
-        if(dos_memcmp(hay, ndl, nsize) == 0) return (void*)hay;
+        if(memcmp(hay, ndl, nsize) == 0) return (void*)hay;
         hay++;
     }
 
@@ -120,3 +122,5 @@ const char* strerror(int errnum) {
         default:      return "Unknown error";
     }
 }
+
+#endif // USE_DOSLIBC

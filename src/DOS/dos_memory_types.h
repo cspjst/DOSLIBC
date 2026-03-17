@@ -1,11 +1,7 @@
 #ifndef DOS_MEMORY_TYPES_H
 #define DOS_MEMORY_TYPES_H
 
-#ifdef USE_DOSLIBC
-    #include "../STD/dos_stdint.h"
-#else
-    #include <stdint.h>
-#endif
+#include "../STD/dos_stdint.h"
 
 typedef union {
     uint16_t word;

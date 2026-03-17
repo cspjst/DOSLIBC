@@ -18,13 +18,8 @@
 
 #include "../DOS/dos_memory_types.h"
 
-#ifdef USE_DOSLIBC
-    #include "../STD/dos_stddef.h"
-    #include "../STD/dos_stdio.h"
-#else
-    #include <stddef.h>
-    #include <stdio.h>
-#endif
+#include "../STD/dos_stddef.h"
+#include "../STD/dos_stdio.h"
 
 #define DUMP_BYTE_DELIM     ' '
 #define DUMP_BYTES_LHS      ' '

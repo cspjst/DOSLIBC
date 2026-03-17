@@ -1,17 +1,11 @@
-#ifdef USE_DOSLIBC
-    #include "STD/dos_stdio.h"
-    #include "STD/dos_assert.h"
-#else
-    #include <stdio.h>
-    #include <assert.h>
-#endif
+#include "STD/dos_stdio.h"
 
 //#include "TEST/test_bios.h"
 //#include "TEST/test_dos_memory.h"
 //#include "TEST/test_dos_services.h"
 //#include "TEST/test_dos_files.h"
 //#include "TEST/test_env.h"
-#include "TEST/test_stdio.h"
+//#include "TEST/test_stdio.h"
 //#include "TEST/test_string.h"
 //#include "TEST/test_files.h"
 //#include "TEST/test_stdlib.h"
@@ -39,8 +33,8 @@ int main() {
 #ifdef USE_DOSLIBC
     printf("DOSLIBC Test Harness\n");
     // STD
-    test_stdio();
-    // test_string();
+    // test_stdio();
+    //test_string();
     // test_files();
     // test_stdlib();
 #else

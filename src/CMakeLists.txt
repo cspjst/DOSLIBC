@@ -78,8 +78,9 @@ file(GLOB SOURCES
     *.c
     BIOS/*.c
     DOS/*.c
-    ENV/*.c
-    DUMP/*.c
+    STD/*.c
+    //ENV/*.c
+    //DUMP/*.c
     TEST/*.c
 )
 

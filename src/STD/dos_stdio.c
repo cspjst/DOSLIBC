@@ -1,7 +1,9 @@
+#ifdef USE_DOSLIBC
+
 #include "dos_stdio.h"
 #include "dos_errno.h"
 #include "dos_string.h"
-#include "dos_bool.h"
+#include "dos_stdbool.h"
 #include "dos_limits.h"
 #include "dos_stdarg.h"
 #include "../DOS/dos_services_constants.h"
@@ -499,3 +501,5 @@ long ftell(FILE* stream) {
 }
 
 #endif // USE_DOSLIBC_FILE_IO
+
+#endif // USE_DOSLIBC

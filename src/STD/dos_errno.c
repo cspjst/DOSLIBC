@@ -1,3 +1,5 @@
+#ifdef USE_DOSLIBC
+
 #include "dos_errno.h"
 #include "../DOS/dos_error_types.h"
 
@@ -31,3 +33,5 @@ int dos_to_errno(dos_error_code_t dos_err) {
     if (dos_err >= sizeof(dos_to_errno_table)) return EINVAL;
     return dos_to_errno_table[dos_err];
 }
+
+#endif

@@ -1,18 +1,11 @@
 #ifndef DOS_SERVICES_FILES_TYPES_H
 #define DOS_SERVICES_FILES_TYPES_H
 
-#ifdef USE_DOSLIBC
-    #include "../STD/dos_stdint.h"
-#else
-    #include <stdint.h>
-#endif
+#include "../STD/dos_stdint.h"
 
 typedef uint16_t dos_file_handle_t;
-
 typedef uint16_t dos_file_attributes_t;
-
 typedef int32_t dos_file_position_t;    // N.B. signed offset
-
 typedef uint32_t dos_file_size_t;
 
 /**
@@ -143,6 +136,5 @@ typedef enum {
     SHARE_FULL = 64,
     PRIVATE = 128
 } dos_file_access_attributes_t;
-
 
 #endif

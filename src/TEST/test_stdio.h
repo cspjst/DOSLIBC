@@ -2,20 +2,10 @@
 #define TEST_STDIO_H
 
 #include "../STD/dos_stdio.h"
-//#include "../STD/dos_errno.h"
-//#include "../STD/dos_stdlib.h"
-//#include "../STD/dos_assert.h"
-//#include "../STD/dos_string.h"
-
-/*
-#include <stdio.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <string.h>
-#include <stddef.h>
-#include <stdint.h>
-*/
+#include "../STD/dos_errno.h"
+#include "../STD/dos_stdlib.h"
+#include "../STD/dos_assert.h"
+#include "../STD/dos_string.h"
 
 #define TEST_BUF_SIZE 64
 
@@ -52,7 +42,6 @@ void test_stdio_basic() {
     puts(NULL);
 }
 
-/*
 void test_printf_integers(void) {
     printf("Testing printf integers...\n");
 
@@ -350,39 +339,24 @@ void test_fgets_stdin(void) {
     assert(buf[TEST_BUF_SIZE - 1] == '\0' || strlen(buf) < TEST_BUF_SIZE);
     printf("stdin test passed\n\n");
 }
-*/
+
 void test_stdio() {
 
     test_stdio_basic();
-    /*getchar();
     test_printf_integers();
-    getchar();
     test_printf_strings();
-    getchar();
     test_printf_hex();
-    getchar();
     test_printf_recursive();
-    getchar();
     test_printf_error_conditions();
-    getchar();
     test_fputc_file_ops();
-    getchar();
     test_fputs_file_ops();
-    getchar();
-    #ifdef DOS_STDIO_PRINTF_FLOAT
+#ifdef USE_DOSLIBC_FLOAT_PRINTF
     test_printf_float_basic();
-    getchar();
-    #endif
-    #ifdef DOS_STDIO_PRINTF_SCIENTIFIC
     test_printf_scientific_basic();
-    getchar();
     test_printf_float_edge_cases();
-    getchar();
-    #endif
+#endif
     test_perror_strerror();
-    getchar();
     test_fgets_stdin();     // Interactive
-    */
 }
 
 #endif

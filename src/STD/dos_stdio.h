@@ -1,7 +1,3 @@
-#ifndef __LARGE__
-    #error "This module requires large memory model (ie far data pointers)"
-#endif
-
 /**
  * @brief Minimal C99 stdio implementation for DOS environments
  * @note
@@ -14,63 +10,71 @@
 #ifndef DOS_STDIO_H
 #define DOS_STDIO_H
 
-#include "../DOS/dos_file_services.h"
-#include "dos_stddef.h"
+#ifdef USE_DOSLIBC
 
-#define EOF (-1)
+    #include "../DOS/dos_file_services.h"
+    #include "dos_stddef.h"
 
-#define SEEK_SET FSEEK_SET
-#define SEEK_CUR FSEEK_CUR
-#define SEEK_END FSEEK_END
+    #define EOF (-1)
 
-#define DOS_STDIO_GETS_MAX  256
+    #define SEEK_SET FSEEK_SET
+    #define SEEK_CUR FSEEK_CUR
+    #define SEEK_END FSEEK_END
 
-typedef dos_file_handle_t FILE;
+    #define DOS_STDIO_GETS_MAX  256
 
-// C type punning
-#define stdin  ((FILE*)(uintptr_t)0)
-#define stdout ((FILE*)(uintptr_t)1)
-#define stderr ((FILE*)(uintptr_t)2)
+    typedef dos_file_handle_t FILE;
 
-// character output
-int fputc(int c, FILE* stream);
-#define putc(c, stream) fputc(c, stream)
-#define putchar(c) fputc(c, stdout)
+    // C type punning
+    #define stdin  ((FILE*)(uintptr_t)0)
+    #define stdout ((FILE*)(uintptr_t)1)
+    #define stderr ((FILE*)(uintptr_t)2)
 
-// string output
-int fputs(const char* str, FILE* stream);
-#define puts(str) (fputs(str, stdout), fputc('\n', stdout))
+    // character output
+    int fputc(int c, FILE* stream);
+    #define putc(c, stream) fputc(c, stream)
+    #define putchar(c) fputc(c, stdout)
 
-// formatted output - fprintf is core, printf is macro
-int fprintf(FILE* stream, const char* format, ...);
-#define printf(fmt, ...) fprintf(stdout, fmt, ##__VA_ARGS__)
+    // string output
+    int fputs(const char* str, FILE* stream);
+    #define puts(str) (fputs(str, stdout), fputc('\n', stdout))
 
-// character input
-int fgetc(FILE* stream);
-#define getc(stream) fgetc(stream)
-#define getchar() fgetc(stdin)
+    // formatted output - fprintf is core, printf is macro
+    int fprintf(FILE* stream, const char* format, ...);
+    #define printf(fmt, ...) fprintf(stdout, fmt, ##__VA_ARGS__)
 
-// string input
-char* fgets(char* s, int size, FILE* stream);
-#define gets(s) fgets((s), DOS_STDIO_GETS_MAX, stdin)
+    // character input
+    int fgetc(FILE* stream);
+    #define getc(stream) fgetc(stream)
+    #define getchar() fgetc(stdin)
 
-// formatted input
-int fscanf(FILE* stream, const char* format, ...);
-#define scanf(fmt, ...) fscanf(stdin, fmt, ##__VA_ARGS__)
+    // string input
+    char* fgets(char* s, int size, FILE* stream);
+    #define gets(s) fgets((s), DOS_STDIO_GETS_MAX, stdin)
 
-// error output
-void perror(const char *s);
+    // formatted input
+    int fscanf(FILE* stream, const char* format, ...);
+    #define scanf(fmt, ...) fscanf(stdin, fmt, ##__VA_ARGS__)
 
-// file operations
-#ifdef USE_DOSLIBC_FILE_IO
+    // error output
+    void perror(const char *s);
 
-FILE* fopen(const char* filename, const char* mode);
-size_t fread(void* ptr, size_t size, size_t count, FILE* stream);
-size_t fwrite(const void* ptr, size_t size, size_t count, FILE* stream);
-int fseek(FILE* stream, long offset, int origin);
-long ftell(FILE* stream);
-int fclose(FILE* stream);
+    // file operations
+    #ifdef USE_DOSLIBC_FILE_IO
 
-#endif // USE_DOSLIBC_FILE_IO
+        FILE* fopen(const char* filename, const char* mode);
+        size_t fread(void* ptr, size_t size, size_t count, FILE* stream);
+        size_t fwrite(const void* ptr, size_t size, size_t count, FILE* stream);
+        int fseek(FILE* stream, long offset, int origin);
+        long ftell(FILE* stream);
+        int fclose(FILE* stream);
+
+    #endif // USE_DOSLIBC_FILE_IO
+
+#else
+
+    #include <stdio.h>
+
+#endif // USE_DOSLIBC
 
 #endif // DOS_STDIO_H
