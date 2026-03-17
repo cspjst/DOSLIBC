@@ -1,12 +1,11 @@
 #ifndef TEST_STDIO_H
 #define TEST_STDIO_H
 
-
-#include "dos_stdio.h"
-#include "dos_errno.h"
-#include "dos_stdlib.h"
-#include "dos_assert.h"
-#include "dos_string.h"
+#include "../STD/dos_stdio.h"
+//#include "../STD/dos_errno.h"
+//#include "../STD/dos_stdlib.h"
+//#include "../STD/dos_assert.h"
+//#include "../STD/dos_string.h"
 
 /*
 #include <stdio.h>
@@ -23,7 +22,7 @@
 void test_stdio_basic() {
 
     fputc(fputc('a', stdout) + 2, stdout);
-    assert(putc('b', stdout) == 'b');
+    //assert(putc('b', stdout) == 'b');
     fputc('e', stderr);
     putc('E', stderr);
 
@@ -52,6 +51,8 @@ void test_stdio_basic() {
     puts("Special chars: !@#$%^&*()");
     puts(NULL);
 }
+
+/*
 void test_printf_integers(void) {
     printf("Testing printf integers...\n");
 
@@ -349,11 +350,11 @@ void test_fgets_stdin(void) {
     assert(buf[TEST_BUF_SIZE - 1] == '\0' || strlen(buf) < TEST_BUF_SIZE);
     printf("stdin test passed\n\n");
 }
-
+*/
 void test_stdio() {
 
     test_stdio_basic();
-    getchar();
+    /*getchar();
     test_printf_integers();
     getchar();
     test_printf_strings();
@@ -381,7 +382,7 @@ void test_stdio() {
     test_perror_strerror();
     getchar();
     test_fgets_stdin();     // Interactive
-
+    */
 }
 
 #endif

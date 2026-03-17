@@ -1,7 +1,5 @@
-#ifdef POLICY_USE_DOS_STD
-    #include "../STD/dos_stdint.h"
-#else
-    #include <stdint.h>
+#ifndef __LARGE__
+    #error "This module requires large memory model (ie far data pointers)"
 #endif
 
 /**
@@ -10,8 +8,10 @@
 #ifndef DOS_FILE_SERVICES_H
 #define  DOS_FILE_SERVICES_H
 
-#ifndef __LARGE__
-    #error "This module requires large memory model (ie far data pointers)"
+#ifdef USE_DOSLIBC
+    #include "../STD/dos_stdint.h"
+#else
+    #include <stdint.h>
 #endif
 
 #include "dos_error_types.h"

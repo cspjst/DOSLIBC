@@ -2,7 +2,7 @@
 #define TEST_ENV_H
 
 
-#ifdef POLICY_USE_DOS_STD
+#ifdef USE_DOSLIBC
     #include "../STD/dos_stdio.h"
     #include "../STD/dos_assert.h"
 #else
@@ -12,20 +12,20 @@
 
 #include "../ENV/dos_environment_types.h"
 #include "../ENV/dos_environment_constants.h"
-#include "../DOS/dos_memory_tools.h"
+#include "../DUMP/dos_dump_tools.h"
 #include "../DOS/dos_memory_constants.h"
 
 void test_types() {
     printf("Testing DOS environment types...\n");
 
-    assert(mem_block_rom_bios.begin.segoff.segment == ROM_SEG_BEGIN);
-    assert(mem_block_rom_bios.begin.segoff.offset == ROM_OFF_BEGIN);
-    assert(mem_block_rom_bios.end.segoff.segment == ROM_SEG_END);
-    assert(mem_block_rom_bios.end.segoff.offset == ROM_OFF_END);
+    assert(MEM_BLOCK_ROM_BIOS.begin.segoff.segment == ROM_SEG_BEGIN);
+    assert(MEM_BLOCK_ROM_BIOS.begin.segoff.offset == ROM_OFF_BEGIN);
+    assert(MEM_BLOCK_ROM_BIOS.end.segoff.segment == ROM_SEG_END);
+    assert(MEM_BLOCK_ROM_BIOS.end.segoff.offset == ROM_OFF_END);
 
-    char str[] = "0123456789ABCDEF";
-
-    dos_dump_paragraph(str);
+    dos_set_dump_stream(stderr);
+    assert(dos_dump_memory(MEM_BLOCK_ROM_BIOS, 16));
+    assert(dos_dump_memory(MEM_BLOCK_IVT, 1));
 
     printf("DOS environment types passed\n\n");
 }

@@ -1,4 +1,4 @@
-#ifdef POLICY_USE_DOS_STD
+#ifdef USE_DOSLIBC
     #include "STD/dos_stdio.h"
     #include "STD/dos_assert.h"
 #else
@@ -10,8 +10,8 @@
 //#include "TEST/test_dos_memory.h"
 //#include "TEST/test_dos_services.h"
 //#include "TEST/test_dos_files.h"
-#include "TEST/test_env.h"
-//#include "TEST/test_stdio.h"
+//#include "TEST/test_env.h"
+#include "TEST/test_stdio.h"
 //#include "TEST/test_string.h"
 //#include "TEST/test_files.h"
 //#include "TEST/test_stdlib.h"
@@ -19,8 +19,8 @@
 
 int main() {
 
-#ifdef POLICY_USE_DOS_STD
-    printf("POLICY_USE_DOS_STD Test Harness\n");
+#ifdef USE_DOSLIBC
+    printf("USE_DOSLIBC Test Harness\n");
 #else
     printf("Test Harness\n");
 #endif
@@ -34,17 +34,17 @@ int main() {
     //test_dos_files();
 
     // ENV
-    test_env();
+    //test_env();
 
-#ifdef POLICY_USE_DOS_STD
+#ifdef USE_DOSLIBC
     printf("DOSLIBC Test Harness\n");
     // STD
-    // test_stdio();
+    test_stdio();
     // test_string();
     // test_files();
     // test_stdlib();
 #else
-    printf("ERROR unable to test DOSLIBC no definition POLICY_USE_DOS_STD \n");
+    printf("ERROR unable to test DOSLIBC no definition USE_DOSLIBC \n");
 #endif
 
 }

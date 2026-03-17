@@ -41,9 +41,9 @@ add_compile_options(
     # -od               # Disable optimizations (debugging)
 
     # === DEBUG/INFO ===
-    -d0                 # No debug info (smaller .obj + binary)
-    # -d1               # Line numbers only
-    # -d2               # Full debug symbols
+    #-d0                # No debug info (smaller .obj + binary)
+    #-d1                # Line numbers only
+    -d2               # Full debug symbols
 
     # === STACK SAFETY ===
     -e0                 # No stack checking (saves ~20 bytes)
@@ -54,9 +54,9 @@ add_compile_options(
     # (omit for pure C89, slightly smaller)
 
     # === WARNINGS ===
-    -w1                 # Mild warnings (avoids 8086 false positives)
+    #-w1                 # Mild warnings (avoids 8086 false positives)
     # -w0               # No warnings
-    # -w2               # More warnings
+     -w2               # More warnings
 
     # === BUILD OUTPUT ===
     #-zq                 # Quiet mode (cleaner output)
@@ -65,7 +65,7 @@ add_compile_options(
 add_definitions(
     -D__DOS__
     -D__8086__  # Explicit 8086 target
-    #-DUSE_DOSLIBC
+    -DUSE_DOSLIBC
     #-DUSE_DOSLIBC_FLOAT_PRINTF
     #-DUSE_DOSLIBC_FILE_IO
 )
@@ -78,9 +78,9 @@ file(GLOB SOURCES
     *.c
     BIOS/*.c
     DOS/*.c
-    #STD/*.c
+    ENV/*.c
+    DUMP/*.c
     TEST/*.c
-    #SNO/*.c
 )
 
 # message(Source list="${SOURCES}")

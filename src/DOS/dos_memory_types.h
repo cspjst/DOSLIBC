@@ -1,11 +1,16 @@
 #ifndef DOS_MEMORY_TYPES_H
 #define DOS_MEMORY_TYPES_H
 
-#ifdef POLICY_USE_DOS_STD
+#ifdef USE_DOSLIBC
     #include "../STD/dos_stdint.h"
 #else
     #include <stdint.h>
 #endif
+
+typedef union {
+    uint16_t word;
+    uint8_t bytes[2];
+} dos_word_t;
 
 #pragma pack(1)
 typedef struct {
@@ -15,7 +20,7 @@ typedef struct {
 #pragma pack()
 
 typedef union {
-    void* ptr;
+    void far* ptr;
     uint32_t memloc;
     dos_segoff_t segoff;
     uint16_t words[2];

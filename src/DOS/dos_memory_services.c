@@ -111,7 +111,7 @@ if (!segment) return DOS_INVALID_DATA;
 dos_error_code_t dos_get_free_memory_paragraphs(uint16_t* free) {
     if (!free) return DOS_INVALID_DATA;
 
-    dos_error_code_t err_code;
+    dos_error_code_t err_code = 0;
     __asm {
         .8086
         pushf

@@ -1,7 +1,7 @@
 #include "bios_memory_services.h"
 
 unsigned short bios_get_startup_memory_kb() {
-    unsigned short mem_blocks;
+    unsigned short mem_blocks = 0;
     __asm {
         .8086
 		pushf               ; not all BIOS functions are well behaved

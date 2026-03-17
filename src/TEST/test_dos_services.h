@@ -1,7 +1,7 @@
 #ifndef TEST_SERVICES_H
 #define TEST_SERVICES_H
 
-#ifdef POLICY_USE_DOS_STD
+#ifdef USE_DOSLIBC
     #include "../STD/dos_stdio.h"
     #include "../STD/dos_assert.h"
 #else

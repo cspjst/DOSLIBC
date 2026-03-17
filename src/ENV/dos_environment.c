@@ -2,4 +2,5 @@
 
 unsigned int dos_environment_is_dosbox() {
 
+    return 0;
 }
