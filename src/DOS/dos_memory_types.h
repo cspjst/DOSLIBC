@@ -22,4 +22,9 @@ typedef union {
     uint8_t bytes[4];
 } dos_address_t;
 
+typedef struct {
+    dos_address_t begin;
+    dos_address_t end;
+} dos_mem_block_t;
+
 #endif

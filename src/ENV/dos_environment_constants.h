@@ -1,0 +1,9 @@
+#ifndef DOS_ENVIRONMENT_CONSTANTS_H
+#define DOS_ENVIRONMENT_CONSTANTS_H
+
+#define ROM_SEG_BEGIN   0xFE00
+#define ROM_OFF_BEGIN   0x0000
+#define ROM_SEG_END     0xF000
+#define ROM_OFF_END     0xFFFF
+
+#endif

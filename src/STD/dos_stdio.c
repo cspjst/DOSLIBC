@@ -230,12 +230,13 @@ int fprintf(FILE* stream, const char* format, ...) {
                             : print_uint(va_arg(args, unsigned int), 10, stream);
                 break;
 
+            case 'p':
             case 'x':
                 n = is_long ? print_hex(va_arg(args, unsigned long), false, stream)
                             : print_hex(va_arg(args, unsigned int), false, stream);
                 break;
 
-            case 'p':
+            case 'P':
             case 'X':
                 n = is_long ? print_hex(va_arg(args, unsigned long), true, stream)
                             : print_hex(va_arg(args, unsigned int), true, stream);

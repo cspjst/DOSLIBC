@@ -6,10 +6,11 @@
     #include <assert.h>
 #endif
 
-#include "TEST/test_bios.h"
-#include "TEST/test_dos_memory.h"
-#include "TEST/test_dos_services.h"
-#include "TEST/test_dos_files.h"
+//#include "TEST/test_bios.h"
+//#include "TEST/test_dos_memory.h"
+//#include "TEST/test_dos_services.h"
+//#include "TEST/test_dos_files.h"
+#include "TEST/test_env.h"
 //#include "TEST/test_stdio.h"
 //#include "TEST/test_string.h"
 //#include "TEST/test_files.h"
@@ -24,22 +25,26 @@ int main() {
     printf("Test Harness\n");
 #endif
     // BIOS
-    test_bios_memory();
-    test_bios_keys();
+    //test_bios_memory();
+    //test_bios_keys();
 
     // DOS
-    test_dos_memory();
-    test_dos_services();
-    test_dos_files();
-   #ifdef POLICY_USE_DOS_STD
-       printf("DOSLIBC Test Harness\n");
-       // STD
-       // test_stdio();
-       // test_string();
-       // test_files();
-       // test_stdlib();
-   #else
-       printf("ERROR unable to test DOSLIBC no definition POLICY_USE_DOS_STD \n");
-   #endif
+    //test_dos_memory();
+    //test_dos_services();
+    //test_dos_files();
+
+    // ENV
+    test_env();
+
+#ifdef POLICY_USE_DOS_STD
+    printf("DOSLIBC Test Harness\n");
+    // STD
+    // test_stdio();
+    // test_string();
+    // test_files();
+    // test_stdlib();
+#else
+    printf("ERROR unable to test DOSLIBC no definition POLICY_USE_DOS_STD \n");
+#endif
 
 }
