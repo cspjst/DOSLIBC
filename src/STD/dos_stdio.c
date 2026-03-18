@@ -1,7 +1,7 @@
 #ifdef USE_DOSLIBC
 
-#include "dos_stdio.h"
 #include "dos_errno.h"
+#include "dos_stdio.h"
 #include "dos_string.h"
 #include "dos_stdbool.h"
 #include "dos_limits.h"
@@ -134,22 +134,23 @@ static int print_scientific(double val, bool uppercase, FILE* stream) {
 int fputc(int c, FILE* stream) {
     dos_file_handle_t handle = (dos_file_handle_t)(uintptr_t)stream;
     dos_error_code_t err = 0;
-    char buffer[2];
     uint16_t nbytes = 1;
+    //The fputc() function shall write the byte specified by c (converted to an unsigned char)
+    unsigned char* p = (unsigned char*)&c;
+    unsigned char buffer[2];
 
     if (c == '\n' && (stream == stdout || stream == stderr)) {
         buffer[0] = '\r';
         buffer[1] = '\n';
         nbytes = 2;
     } else {
-        buffer[0] = c;
+        buffer[0] = p[0];
     }
 
     __asm {
         .8086
-        pushf
+       	pushf               ; not all BIOS functions are well behaved
         push    ds
-        push    si
 
         mov     bx, handle
         mov     cx, nbytes
@@ -159,9 +160,8 @@ int fputc(int c, FILE* stream) {
         jnc     END
         mov     err, ax
 
-END:    pop     si
-        pop     ds
-        popf
+END:    pop 	ds
+		popf
     }
 
     if (err != 0) {
@@ -169,7 +169,7 @@ END:    pop     si
         return EOF;
     }
 
-    return (unsigned char)c;
+    return c;
 }
 
 int fputs(const char* str, FILE* stream) {
@@ -250,6 +250,7 @@ int fprintf(FILE* stream, const char* format, ...) {
                 break;
 
 #ifdef USE_DOSLIBC_FLOAT_PRINTF
+/*
             case 'f':
                 n = print_float(va_arg(args, double), stream);
                 break;
@@ -259,6 +260,7 @@ int fprintf(FILE* stream, const char* format, ...) {
             case 'E':
                 n = print_scientific(va_arg(args, double), true, stream);
                 break;
+*/
 #endif // USE_DOSLIBC_FLOAT_PRINTF
 
             case '%':
@@ -279,15 +281,6 @@ int fprintf(FILE* stream, const char* format, ...) {
 
     va_end(args);
     return count;
-}
-
-int printf_(const char* format, ...) {
-    // This symbol satisfies linker, but code should use macro
-    va_list args;
-    va_start(args, format);
-    int result = fprintf(stdout, format, args);  // Your actual logic
-    va_end(args);
-    return result;
 }
 
 // Input functions

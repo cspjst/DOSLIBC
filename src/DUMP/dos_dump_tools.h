@@ -43,14 +43,14 @@ void dos_dump_byte(char b, char rhs, char fmt);
 
 void dos_dump_word(short w, char rhs, char fmt);
 
-void dos_dump_ptr(const void far* p, char delim, char rhs, char fmt);
+void dos_dump_ptr(const void* p, char delim, char rhs, char fmt);
 
-const void far* dos_dump_chars(const char far* b, size_t n, char delim, char lhs, char rhs);
+const void* dos_dump_chars(const char* b, size_t n, char delim, char lhs, char rhs);
 
-const void far* dos_dump_bytes(const char far* b, size_t n, char delim, char lhs, char rhs);
+const void* dos_dump_bytes(const char* b, size_t n, char delim, char lhs, char rhs);
 
-const void far* dos_dump_paragraph(const char far* para);
+const void* dos_dump_paragraph(const char* para);
 
-const void far* dos_dump_memory(dos_mem_block_t mem_block, size_t paragraphs);
+const void* dos_dump_memory(dos_mem_block_t mem_block, size_t paragraphs);
 
 #endif

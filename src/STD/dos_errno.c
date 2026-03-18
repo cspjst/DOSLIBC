@@ -6,7 +6,7 @@
 int errno = 0;
 
 #pragma pack(push, 1)
-static const uint8_t dos_to_errno_table[] = {
+static const int dos_to_errno_table[] = {
     0,          // DOS_SUCCESS
     ENOSYS,     // DOS_INVALID_FUNCTION_NUMBER
     ENOENT,     // DOS_FILE_NOT_FOUND,

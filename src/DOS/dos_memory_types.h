@@ -16,7 +16,7 @@ typedef struct {
 #pragma pack()
 
 typedef union {
-    void far* ptr;
+    void* ptr;
     uint32_t memloc;
     dos_segoff_t segoff;
     uint16_t words[2];

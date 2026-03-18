@@ -1,9 +1,7 @@
 #ifndef DOS_SERVICES_TYPES_H
 #define DOS_SERVICES_TYPES_H
 
-#include "../STD/dos_stdint.h"
-
-typedef uint16_t dos_error_code_t;
+typedef unsigned short dos_error_code_t;
 
 /**
 * Classic 12h codes

@@ -1,10 +1,9 @@
 #ifndef TEST_STRING_H
 #define TEST_STRING_H
 
-
-#include "dos_string.h"
-#include "dos_stdio.h"
-#include "dos_assert.h"
+#include "../STD/dos_string.h"
+#include "../STD/dos_stdio.h"
+#include "../STD/dos_assert.h"
 
 void test_strlen() {
 

@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta May  3 2025 18:23:37
 Copyright (c) 2002-2025 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       26/03/17 15:56:17
+Created on:       26/03/18 00:11:27
 Executable Image: TEST.exe
 creating a DOS executable
 
@@ -13,7 +13,7 @@ creating a DOS executable
 Group                           Address              Size
 =====                           =======              ====
 
-DGROUP                          0215:0000            00000a80
+DGROUP                          019a:0000            00000cb0
 
 
 
@@ -24,33 +24,36 @@ DGROUP                          0215:0000            00000a80
 Segment                Class          Group          Address         Size
 =======                =====          =====          =======         ====
 
-bios_keyboard_services_TEXT CODE      AUTO           0000:0000       0000007e
-bios_memory_services_TEXT CODE        AUTO           0000:007e       0000002d
-dos_file_services_TEXT CODE           AUTO           0000:00ab       00000328
-dos_file_tools_TEXT    CODE           AUTO           0000:03d3       000002fc
-dos_memory_services_TEXT CODE         AUTO           0000:06cf       00000116
-dos_services_TEXT      CODE           AUTO           0000:07e5       00000091
-dos_errno_TEXT         CODE           AUTO           0000:0876       0000003b
-dos_stdio_TEXT         CODE           AUTO           0000:08b1       00000aeb
-dos_stdlib_TEXT        CODE           AUTO           0000:139c       0000019b
-dos_string_TEXT        CODE           AUTO           0000:1537       000006ac
-main_TEXT              CODE           AUTO           0000:1be3       00000049
-_TEXT                  CODE           AUTO           0000:1c2c       00000521
-FAR_DATA               FAR_DATA       AUTO           0214:000d       00000000
-_NULL                  BEGDATA        DGROUP         0215:0000       00000020
-_AFTERNULL             BEGDATA        DGROUP         0217:0000       00000002
-CONST                  DATA           DGROUP         0217:0002       000001f2
-CONST2                 DATA           DGROUP         0236:0004       00000013
-_DATA                  DATA           DGROUP         0237:0008       0000004a
-XIB                    DATA           DGROUP         023c:0002       00000000
-XI                     DATA           DGROUP         023c:0002       00000000
-XIE                    DATA           DGROUP         023c:0002       00000000
-YIB                    DATA           DGROUP         023c:0002       00000000
-YI                     DATA           DGROUP         023c:0002       00000000
-YIE                    DATA           DGROUP         023c:0002       00000000
-DATA                   DATA           DGROUP         023c:0002       00000000
-_BSS                   BSS            DGROUP         023c:0002       00000006
-STACK                  STACK          DGROUP         023d:0000       00000800
+bios_keyboard_services_TEXT CODE      AUTO           0000:0000       00000071
+bios_memory_services_TEXT CODE        AUTO           0000:0071       00000027
+dos_file_services_TEXT CODE           AUTO           0000:0098       000002c6
+dos_file_tools_TEXT    CODE           AUTO           0000:035e       00000173
+dos_memory_services_TEXT CODE         AUTO           0000:04d1       000000de
+dos_services_TEXT      CODE           AUTO           0000:05af       00000084
+dos_dump_tools_TEXT    CODE           AUTO           0000:0633       00000305
+dos_environment_TEXT   CODE           AUTO           0000:0938       00000003
+dos_environment_constants_TEXT CODE   AUTO           0000:093b       00000000
+dos_errno_TEXT         CODE           AUTO           0000:093b       00000016
+dos_stdio_TEXT         CODE           AUTO           0000:0951       0000059f
+dos_stdlib_TEXT        CODE           AUTO           0000:0ef0       000000ed
+dos_string_TEXT        CODE           AUTO           0000:0fdd       000002d4
+main_TEXT              CODE           AUTO           0000:12b1       000001c4
+_TEXT                  CODE           AUTO           0000:1476       00000521
+FAR_DATA               FAR_DATA       AUTO           0199:0007       00000000
+_NULL                  BEGDATA        DGROUP         019a:0000       00000020
+_AFTERNULL             BEGDATA        DGROUP         019c:0000       00000002
+CONST                  DATA           DGROUP         019c:0002       000003bf
+CONST2                 DATA           DGROUP         01d8:0002       00000070
+_DATA                  DATA           DGROUP         01df:0002       0000004e
+XIB                    DATA           DGROUP         01e4:0000       00000000
+XI                     DATA           DGROUP         01e4:0000       00000000
+XIE                    DATA           DGROUP         01e4:0000       00000000
+YIB                    DATA           DGROUP         01e4:0000       00000000
+YI                     DATA           DGROUP         01e4:0000       00000000
+YIE                    DATA           DGROUP         01e4:0000       00000000
+DATA                   DATA           DGROUP         01e4:0000       00000000
+_BSS                   BSS            DGROUP         01e4:0000       00000006
+STACK                  STACK          DGROUP         01e5:0000       00000800
 
 
                         +----------------+
@@ -63,129 +66,151 @@ STACK                  STACK          DGROUP         023d:0000       00000800
 Address        Symbol
 =======        ======
 
-Module: CMakeFiles/TEST.dir/BIOS/bios_keyboard_services.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/BIOS/bios_keyboard_services.c)
-0000:0000+     bios_wait_for_keystroke_and_read_
-0000:0026+     bios_get_keystroke_status_
-0000:0056+     bios_get_keyboard_flags_
-Module: CMakeFiles/TEST.dir/BIOS/bios_memory_services.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/BIOS/bios_memory_services.c)
-0000:007e+     bios_get_startup_memory_kb_
-Module: CMakeFiles/TEST.dir/DOS/dos_file_services.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/DOS/dos_file_services.c)
-0000:00ab+     dos_get_disk_free_space_
-0000:0107+     dos_create_file_
-0000:0150+     dos_open_file_
-0000:0199+     dos_close_file_
-0000:01d1      dos_read_file_
-0000:0225+     dos_write_file_
-0000:0279+     dos_delete_file_
-0000:02b2      dos_move_file_pointer_
-0000:030d      dos_get_file_attributes_
-0000:0352+     dos_set_file_attributes_
-0000:0392+     dos_rename_file_
-Module: CMakeFiles/TEST.dir/DOS/dos_file_tools.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/DOS/dos_file_tools.c)
-0000:03d3+     dos_file_exists_
-0000:041e+     dos_file_is_eof_
-0000:0502+     dos_file_size_
-0000:05cc+     dos_file_ext_
-Module: CMakeFiles/TEST.dir/DOS/dos_memory_services.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/DOS/dos_memory_services.c)
-0000:06cf      dos_allocate_memory_blocks_
-0000:072d      dos_free_allocated_memory_blocks_
-0000:077a+     dos_get_free_memory_paragraphs_
-Module: CMakeFiles/TEST.dir/DOS/dos_services.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/DOS/dos_services.c)
-0000:07e5+     dos_set_interrupt_vector_
-0000:080f+     dos_get_interrupt_vector_
-0000:0856      dos_terminate_process_with_return_code_
-Module: CMakeFiles/TEST.dir/STD/dos_errno.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/STD/dos_errno.c)
-0000:0876      dos_to_errno_
-0215:0228      _errno
-Module: CMakeFiles/TEST.dir/STD/dos_stdio.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/STD/dos_stdio.c)
-0000:0ba9+     fputc_
-0000:0c70+     fputs_
-0000:0ccf      fprintf_
-0000:1161+     printf__
-0000:11a5+     fgetc_
-0000:120c+     fgets_
-0000:1307+     perror_
-Module: CMakeFiles/TEST.dir/STD/dos_stdlib.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/STD/dos_stdlib.c)
-0000:139c+     dos_malloc_
-0000:1413+     dos_free_
-0000:14ad+     dos_calloc_
-Module: CMakeFiles/TEST.dir/STD/dos_string.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/STD/dos_string.c)
-0000:1537+     strlen_
-0000:1591+     strcmp_
-0000:15fd+     strncmp_
-0000:16da+     strchr_
-0000:1750+     strrchr_
-0000:17cf+     memcmp_
-0000:18bc+     memset_
-0000:1939+     memcpy_
-0000:19dd+     memmem_
-0000:1af9      strerror_
-Module: CMakeFiles/TEST.dir/main.c.obj(/Users/jeremythornton/dosbox/cspjst/DOSLIBC/src/main.c)
-0000:1be3      main_
+Module: CMakeFiles/TEST.dir/BIOS/bios_keyboard_services.c.obj(bios_keyboard_services)
+0000:0000*     bios_wait_for_keystroke_and_read_
+0000:0027*     bios_get_keystroke_status_
+0000:0050*     bios_get_keyboard_flags_
+Module: CMakeFiles/TEST.dir/BIOS/bios_memory_services.c.obj(bios_memory_services)
+0000:0071*     bios_get_startup_memory_kb_
+Module: CMakeFiles/TEST.dir/DOS/dos_file_services.c.obj(dos_file_services)
+0000:0098*     dos_get_disk_free_space_
+0000:00f0*     dos_create_file_
+0000:0133*     dos_open_file_
+0000:016f*     dos_close_file_
+0000:019f      dos_read_file_
+0000:01eb*     dos_write_file_
+0000:022c*     dos_delete_file_
+0000:025f      dos_move_file_pointer_
+0000:02ad      dos_get_file_attributes_
+0000:02ee*     dos_set_file_attributes_
+0000:032a*     dos_rename_file_
+Module: CMakeFiles/TEST.dir/DOS/dos_file_tools.c.obj(dos_file_tools)
+0000:035e*     dos_file_exists_
+0000:037e*     dos_file_is_eof_
+0000:0403*     dos_file_size_
+0000:046e*     dos_file_ext_
+Module: CMakeFiles/TEST.dir/DOS/dos_memory_services.c.obj(dos_memory_services)
+0000:04d1      dos_allocate_memory_blocks_
+0000:051f      dos_free_allocated_memory_blocks_
+0000:055c*     dos_get_free_memory_paragraphs_
+Module: CMakeFiles/TEST.dir/DOS/dos_services.c.obj(dos_services)
+0000:05af*     dos_set_interrupt_vector_
+0000:05db*     dos_get_interrupt_vector_
+0000:0616      dos_terminate_process_with_return_code_
+Module: CMakeFiles/TEST.dir/DUMP/dos_dump_tools.c.obj(dos_dump_tools)
+0000:0633      dos_set_dump_stream_
+0000:063d*     dos_get_dump_stream_
+0000:0647+     dos_dump_char_
+0000:0686+     dos_dump_hex_
+0000:06ff*     dos_dump_binary_
+0000:0761+     dos_dump_byte_
+0000:07a2+     dos_dump_word_
+0000:07d1+     dos_dump_ptr_
+0000:0800+     dos_dump_chars_
+0000:0867+     dos_dump_bytes_
+0000:08ac+     dos_dump_paragraph_
+0000:0903      dos_dump_memory_
+Module: CMakeFiles/TEST.dir/ENV/dos_environment.c.obj(dos_environment)
+0000:0938*     dos_environment_is_dosbox_
+Module: CMakeFiles/TEST.dir/ENV/dos_environment_constants.c.obj(dos_environment_constants)
+019a:0404      _MEM_BLOCK_IVT
+019a:040c*     _MEM_BLOCK_BDA
+019a:0414*     _MEM_BLOCK_VIDEO_MONO_PAGE_0
+019a:041c*     _MEM_BLOCK_VIDEO_COLOUR_PAGE_0
+019a:0424      _MEM_BLOCK_ROM_BIOS
+Module: CMakeFiles/TEST.dir/STD/dos_errno.c.obj(dos_errno)
+0000:093b      dos_to_errno_
+019a:0456      _errno
+Module: CMakeFiles/TEST.dir/STD/dos_stdio.c.obj(dos_stdio)
+0000:0ab1      fputc_
+0000:0b36+     fputs_
+0000:0b68      fprintf_
+0000:0df2+     fgetc_
+0000:0e2a*     fgets_
+0000:0ea1*     perror_
+Module: CMakeFiles/TEST.dir/STD/dos_stdlib.c.obj(dos_stdlib)
+0000:0ef0*     dos_malloc_
+0000:0f30*     dos_free_
+0000:0f72*     dos_calloc_
+Module: CMakeFiles/TEST.dir/STD/dos_string.c.obj(dos_string)
+0000:0fdd*     strlen_
+0000:1000*     strcmp_
+0000:102a*     strncmp_
+0000:1095*     strchr_
+0000:10b7*     strrchr_
+0000:10e7+     memcmp_
+0000:1144*     memset_
+0000:1175*     memcpy_
+0000:11a7*     memmem_
+0000:1247      strerror_
+Module: CMakeFiles/TEST.dir/main.c.obj(main)
+0000:12b1+     test_types_
+0000:12b1*     test_env_
+0000:1446      main_
 Module: /opt/watcom/lib286/dos/clibl.lib(cmodel)
-0000:1c2c      _big_code_
-0000:1c2c*     CodeModelMismatch
+0000:1476      _big_code_
+0000:1476*     CodeModelMismatch
 Module: /opt/watcom/lib286/dos/clibl.lib(i4d)
-0000:1c2c*     __I4D
-0000:1c7b      __U4D
+0000:1476*     __I4D
+0000:14c5      __U4D
 Module: /opt/watcom/lib286/dos/clibl.lib(cstart)
-0215:0000*     __nullarea
-0215:0236*     __ovlflag
-0215:0237*     __intno
-0215:0238*     __ovlvec
-0000:1d00      _cstart_
-0000:1eb1      __exit_
-0000:1ece      __do_exit_with_msg_
-0000:1fad      __GETDS
+019a:0000*     __nullarea
+019a:0464*     __ovlflag
+019a:0465*     __intno
+019a:0466*     __ovlvec
+0000:154a      _cstart_
+0000:16fb      __exit_
+0000:1718      __do_exit_with_msg_
+0000:17f7      __GETDS
 Module: /opt/watcom/lib286/dos/clibl.lib(xmsg)
-0000:1fb7*     __exit_with_msg_
-0000:1fbc      __fatal_runtime_error_
+0000:1801*     __exit_with_msg_
+0000:1806      __fatal_runtime_error_
 Module: /opt/watcom/lib286/dos/clibl.lib(cmain086)
-0000:1fd6      __CMain
+0000:1820      __CMain
 Module: /opt/watcom/lib286/dos/clibl.lib(initrtns)
-0000:2028      __InitRtns
-0000:2028*     __FInitRtns
-0000:207f      __FiniRtns
-0000:207f*     __FFiniRtns
+0000:1872      __InitRtns
+0000:1872*     __FInitRtns
+0000:18c9      __FiniRtns
+0000:18c9*     __FFiniRtns
 Module: /opt/watcom/lib286/dos/clibl.lib(crwdata)
-0215:023c      __curbrk
-0215:0244      __STACKLOW
-0215:0246      __STACKTOP
-0215:0248      __cbyte
-0215:024a      __child
-0215:024c      __no87
-0215:0259      ___FPE_handler
-0215:023e      __psp
-0215:024d      __get_ovl_stack
-0215:0251      __restore_ovl_stack
-0215:0255      __close_ovl_file
-0215:025d      __LpCmdLine
-0215:0261      __LpPgmName
-0215:0240      __osmajor
-0215:0241      __osminor
-0215:0242      __osmode
-0215:0243      __HShift
+019a:046a      __curbrk
+019a:0472      __STACKLOW
+019a:0474      __STACKTOP
+019a:0476      __cbyte
+019a:0478      __child
+019a:047a      __no87
+019a:0487      ___FPE_handler
+019a:046c      __psp
+019a:047b      __get_ovl_stack
+019a:047f      __restore_ovl_stack
+019a:0483      __close_ovl_file
+019a:048b      __LpCmdLine
+019a:048f      __LpPgmName
+019a:046e      __osmajor
+019a:046f      __osminor
+019a:0470      __osmode
+019a:0471      __HShift
 Module: /opt/watcom/lib286/dos/clibl.lib(uselfn)
-0215:0266      ___uselfn
+019a:0494      ___uselfn
 Module: /opt/watcom/lib286/dos/clibl.lib(dosseg)
-0000:20e0      __DOSseg__
+0000:192a      __DOSseg__
 Module: /opt/watcom/lib286/dos/clibl.lib(enterdb)
-0000:20e1      __EnterWVIDEO_
-0215:0268+     __WD_Present
+0000:192b      __EnterWVIDEO_
+019a:0496+     __WD_Present
 Module: /opt/watcom/lib286/dos/clibl.lib(___argc)
-0215:0272      ____Argv
-0215:0276      ____Argc
+019a:04a0      ____Argv
+019a:04a4      ____Argc
 Module: /opt/watcom/lib286/dos/clibl.lib(exit)
-0000:2105+     __null_int23_exit_
-0000:2106      exit_
-0000:2135*     _exit_
-0215:026a+     ___int23_exit
-0215:026e+     ___FPE_handler_exit
+0000:194f+     __null_int23_exit_
+0000:1950      exit_
+0000:197f*     _exit_
+019a:0498+     ___int23_exit
+019a:049c+     ___FPE_handler_exit
 Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
-0215:0272      __Start_XI
-0215:0272      __End_XI
-0215:0272      __Start_YI
-0215:0272      __End_YI
+019a:04a0      __Start_XI
+019a:04a0      __End_XI
+019a:04a0      __Start_YI
+019a:04a0      __End_YI
 
 
                         +--------------------+
@@ -200,6 +225,6 @@ Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
                         +-----------------------+
 
 Stack size:  0800 (2048.)
-Memory size:  2bd0 (11216.)
-Entry point address: 0000:1d00
-Link time: 00:00.60
+Memory size:  2650 (9808.)
+Entry point address: 0000:154a
+Link time: 00:00.64

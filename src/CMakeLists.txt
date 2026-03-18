@@ -41,9 +41,9 @@ add_compile_options(
     # -od               # Disable optimizations (debugging)
 
     # === DEBUG/INFO ===
-    #-d0                # No debug info (smaller .obj + binary)
+    -d0                # No debug info (smaller .obj + binary)
     #-d1                # Line numbers only
-    -d2               # Full debug symbols
+    #-d2               # Full debug symbols
 
     # === STACK SAFETY ===
     -e0                 # No stack checking (saves ~20 bytes)
@@ -59,7 +59,7 @@ add_compile_options(
      -w2               # More warnings
 
     # === BUILD OUTPUT ===
-    #-zq                 # Quiet mode (cleaner output)
+    -zq                 # Quiet mode (cleaner output)
     # (omit for verbose build log)
 )
 add_definitions(
@@ -79,8 +79,8 @@ file(GLOB SOURCES
     BIOS/*.c
     DOS/*.c
     STD/*.c
-    //ENV/*.c
-    //DUMP/*.c
+    ENV/*.c
+    DUMP/*.c
     TEST/*.c
 )
 

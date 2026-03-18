@@ -12,9 +12,9 @@ void dos_set_dump_stream(FILE* os) { ostream = os; }
 FILE* dos_get_dump_stream() { return ostream; }
 
 void dos_dump_char(char b, char rhs) {
-    if (b >= 32 && b < 127) fputc(b, ostream);
-    else fputc('.', ostream);
-    if(rhs) fputc(rhs, ostream);
+    if (b < 32 || b > 126) fputc('.', ostream);
+    else fputc(b, ostream);
+    if(rhs) fputc(rhs, stderr);
 }
 
 void dos_dump_hex(char b, char rhs, const char* hex_chars) {
@@ -45,28 +45,28 @@ void dos_dump_word(short w, char rhs, char fmt) {
     dos_dump_byte(m.bytes[0], rhs, fmt);
 }
 
-void dos_dump_ptr(const void far* p, char delim, char rhs, char fmt) {
+void dos_dump_ptr(const void* p, char delim, char rhs, char fmt) {
     dos_address_t addr;
-    addr.ptr = (void far*)p;
+    addr.ptr = (void*)p;
     dos_dump_word(addr.words[1], delim, fmt);
     dos_dump_word(addr.words[0], rhs, fmt);
 }
 
-const void far* dos_dump_chars(const char far* b, size_t n, char delim, char lhs, char rhs) {
+const void* dos_dump_chars(const char* b, size_t n, char delim, char lhs, char rhs) {
     if (lhs) fputc(lhs, ostream);
     while(n--) dos_dump_char(*b++, delim);
     if (rhs) fputc(rhs, ostream);
     return (void*)b;
 }
 
-const void far* dos_dump_bytes(const char far* b, size_t n, char delim, char lhs, char rhs) {
+const void* dos_dump_bytes(const char* b, size_t n, char delim, char lhs, char rhs) {
     if (lhs) fputc(lhs, ostream);
     while(n--) dos_dump_byte(*b++, delim, 'X');
     if (rhs) fputc(rhs, ostream);
     return (void*)b;
 }
 
-const void far* dos_dump_paragraph(const char far* para) {
+const void* dos_dump_paragraph(const char* para) {
     dos_dump_ptr(para, DUMP_PTR_DELIM, DUMP_BYTES_RHS, 'X');
     dos_dump_bytes(para, DOS_PARAGRAPH_SIZE, DUMP_BYTE_DELIM, DUMP_BYTES_LHS, DUMP_BYTES_RHS);
     dos_dump_chars(para , DOS_PARAGRAPH_SIZE, 0, DUMP_CHARS_LHS, DUMP_CHARS_RHS);
@@ -74,10 +74,10 @@ const void far* dos_dump_paragraph(const char far* para) {
     return (void*)(para + DOS_PARAGRAPH_SIZE);
 }
 
-const void far* dos_dump_memory(dos_mem_block_t mem_block, size_t paragraphs) {
+const void* dos_dump_memory(dos_mem_block_t mem_block, size_t paragraphs) {
     const char* p = (char*)mem_block.begin.ptr;
     if(mem_block.begin.ptr > mem_block.end.ptr) return NULL;
     while(paragraphs--)
-       p = dos_dump_paragraph((const void far*)p);
+       p = dos_dump_paragraph((const void*)p);
     return (void*)p;
 }
