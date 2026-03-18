@@ -1,7 +1,7 @@
-Open Watcom Linker Version 2.0 beta May  3 2025 18:23:37
-Copyright (c) 2002-2025 The Open Watcom Contributors. All Rights Reserved.
+Open Watcom Linker Version 2.0 beta Mar  1 2026 03:41:37 (64-bit)
+Copyright (c) 2002-2026 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       26/03/18 00:45:16
+Created on:       26/03/18 17:49:33
 Executable Image: TEST.exe
 creating a DOS executable
 
@@ -13,7 +13,7 @@ creating a DOS executable
 Group                           Address              Size
 =====                           =======              ====
 
-DGROUP                          019a:0000            00000cb0
+DGROUP                          0199:0000            00000c90
 
 
 
@@ -38,22 +38,22 @@ dos_stdio_TEXT         CODE           AUTO           0000:0951       0000059f
 dos_stdlib_TEXT        CODE           AUTO           0000:0ef0       000000ed
 dos_string_TEXT        CODE           AUTO           0000:0fdd       000002d4
 main_TEXT              CODE           AUTO           0000:12b1       000001c4
-_TEXT                  CODE           AUTO           0000:1476       00000521
-FAR_DATA               FAR_DATA       AUTO           0199:0007       00000000
-_NULL                  BEGDATA        DGROUP         019a:0000       00000020
-_AFTERNULL             BEGDATA        DGROUP         019c:0000       00000002
-CONST                  DATA           DGROUP         019c:0002       000003bf
-CONST2                 DATA           DGROUP         01d8:0002       00000070
-_DATA                  DATA           DGROUP         01df:0002       0000004e
-XIB                    DATA           DGROUP         01e4:0000       00000000
-XI                     DATA           DGROUP         01e4:0000       00000000
-XIE                    DATA           DGROUP         01e4:0000       00000000
-YIB                    DATA           DGROUP         01e4:0000       00000000
-YI                     DATA           DGROUP         01e4:0000       00000000
-YIE                    DATA           DGROUP         01e4:0000       00000000
-DATA                   DATA           DGROUP         01e4:0000       00000000
-_BSS                   BSS            DGROUP         01e4:0000       00000006
-STACK                  STACK          DGROUP         01e5:0000       00000800
+_TEXT                  CODE           AUTO           0000:1476       0000050e
+FAR_DATA               FAR_DATA       AUTO           0198:0004       00000000
+_NULL                  BEGDATA        DGROUP         0199:0000       00000020
+_AFTERNULL             BEGDATA        DGROUP         019b:0000       00000002
+CONST                  DATA           DGROUP         019b:0002       000003ab
+CONST2                 DATA           DGROUP         01d5:000e       00000070
+_DATA                  DATA           DGROUP         01dc:000e       0000004a
+XIB                    DATA           DGROUP         01e1:0008       00000000
+XI                     DATA           DGROUP         01e1:0008       00000000
+XIE                    DATA           DGROUP         01e1:0008       00000000
+YIB                    DATA           DGROUP         01e1:0008       00000000
+YI                     DATA           DGROUP         01e1:0008       00000000
+YIE                    DATA           DGROUP         01e1:0008       00000000
+DATA                   DATA           DGROUP         01e1:0008       00000000
+_BSS                   BSS            DGROUP         01e1:0008       00000006
+STACK                  STACK          DGROUP         01e2:0000       00000800
 
 
                         +----------------+
@@ -66,13 +66,13 @@ STACK                  STACK          DGROUP         01e5:0000       00000800
 Address        Symbol
 =======        ======
 
-Module: CMakeFiles/TEST.dir/BIOS/bios_keyboard_services.c.obj(bios_keyboard_services)
+Module: CMakeFiles/TEST.dir/BIOS/bios_keyboard_services.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/BIOS/bios_keyboard_services.c)
 0000:0000*     bios_wait_for_keystroke_and_read_
 0000:0027*     bios_get_keystroke_status_
 0000:0050*     bios_get_keyboard_flags_
-Module: CMakeFiles/TEST.dir/BIOS/bios_memory_services.c.obj(bios_memory_services)
+Module: CMakeFiles/TEST.dir/BIOS/bios_memory_services.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/BIOS/bios_memory_services.c)
 0000:0071*     bios_get_startup_memory_kb_
-Module: CMakeFiles/TEST.dir/DOS/dos_file_services.c.obj(dos_file_services)
+Module: CMakeFiles/TEST.dir/DOS/dos_file_services.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/DOS/dos_file_services.c)
 0000:0098*     dos_get_disk_free_space_
 0000:00f0*     dos_create_file_
 0000:0133*     dos_open_file_
@@ -84,20 +84,20 @@ Module: CMakeFiles/TEST.dir/DOS/dos_file_services.c.obj(dos_file_services)
 0000:02ad      dos_get_file_attributes_
 0000:02ee*     dos_set_file_attributes_
 0000:032a*     dos_rename_file_
-Module: CMakeFiles/TEST.dir/DOS/dos_file_tools.c.obj(dos_file_tools)
+Module: CMakeFiles/TEST.dir/DOS/dos_file_tools.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/DOS/dos_file_tools.c)
 0000:035e*     dos_file_exists_
 0000:037e*     dos_file_is_eof_
 0000:0403*     dos_file_size_
 0000:046e*     dos_file_ext_
-Module: CMakeFiles/TEST.dir/DOS/dos_memory_services.c.obj(dos_memory_services)
+Module: CMakeFiles/TEST.dir/DOS/dos_memory_services.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/DOS/dos_memory_services.c)
 0000:04d1      dos_allocate_memory_blocks_
 0000:051f      dos_free_allocated_memory_blocks_
 0000:055c*     dos_get_free_memory_paragraphs_
-Module: CMakeFiles/TEST.dir/DOS/dos_services.c.obj(dos_services)
+Module: CMakeFiles/TEST.dir/DOS/dos_services.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/DOS/dos_services.c)
 0000:05af*     dos_set_interrupt_vector_
 0000:05db*     dos_get_interrupt_vector_
 0000:0616      dos_terminate_process_with_return_code_
-Module: CMakeFiles/TEST.dir/DUMP/dos_dump_tools.c.obj(dos_dump_tools)
+Module: CMakeFiles/TEST.dir/DUMP/dos_dump_tools.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/DUMP/dos_dump_tools.c)
 0000:0633      dos_set_dump_stream_
 0000:063d*     dos_get_dump_stream_
 0000:0647+     dos_dump_char_
@@ -110,29 +110,29 @@ Module: CMakeFiles/TEST.dir/DUMP/dos_dump_tools.c.obj(dos_dump_tools)
 0000:0867+     dos_dump_bytes_
 0000:08ac+     dos_dump_paragraph_
 0000:0903      dos_dump_memory_
-Module: CMakeFiles/TEST.dir/ENV/dos_environment.c.obj(dos_environment)
+Module: CMakeFiles/TEST.dir/ENV/dos_environment.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/ENV/dos_environment.c)
 0000:0938*     dos_environment_is_dosbox_
-Module: CMakeFiles/TEST.dir/ENV/dos_environment_constants.c.obj(dos_environment_constants)
-019a:0404      _MEM_BLOCK_IVT
-019a:040c*     _MEM_BLOCK_BDA
-019a:0414*     _MEM_BLOCK_VIDEO_MONO_PAGE_0
-019a:041c*     _MEM_BLOCK_VIDEO_COLOUR_PAGE_0
-019a:0424      _MEM_BLOCK_ROM_BIOS
-Module: CMakeFiles/TEST.dir/STD/dos_errno.c.obj(dos_errno)
+Module: CMakeFiles/TEST.dir/ENV/dos_environment_constants.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/ENV/dos_environment_constants.c)
+0199:03f0      _MEM_BLOCK_IVT
+0199:03f8*     _MEM_BLOCK_BDA
+0199:0400*     _MEM_BLOCK_VIDEO_MONO_PAGE_0
+0199:0408*     _MEM_BLOCK_VIDEO_COLOUR_PAGE_0
+0199:0410      _MEM_BLOCK_ROM_BIOS
+Module: CMakeFiles/TEST.dir/STD/dos_errno.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/STD/dos_errno.c)
 0000:093b      dos_to_errno_
-019a:0456      _errno
-Module: CMakeFiles/TEST.dir/STD/dos_stdio.c.obj(dos_stdio)
+0199:0442      _errno
+Module: CMakeFiles/TEST.dir/STD/dos_stdio.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/STD/dos_stdio.c)
 0000:0ab1      fputc_
 0000:0b36+     fputs_
 0000:0b68      fprintf_
 0000:0df2+     fgetc_
 0000:0e2a*     fgets_
 0000:0ea1*     perror_
-Module: CMakeFiles/TEST.dir/STD/dos_stdlib.c.obj(dos_stdlib)
+Module: CMakeFiles/TEST.dir/STD/dos_stdlib.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/STD/dos_stdlib.c)
 0000:0ef0*     dos_malloc_
 0000:0f30*     dos_free_
 0000:0f72*     dos_calloc_
-Module: CMakeFiles/TEST.dir/STD/dos_string.c.obj(dos_string)
+Module: CMakeFiles/TEST.dir/STD/dos_string.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/STD/dos_string.c)
 0000:0fdd*     strlen_
 0000:1000*     strcmp_
 0000:102a*     strncmp_
@@ -143,7 +143,7 @@ Module: CMakeFiles/TEST.dir/STD/dos_string.c.obj(dos_string)
 0000:1175*     memcpy_
 0000:11a7*     memmem_
 0000:1247      strerror_
-Module: CMakeFiles/TEST.dir/main.c.obj(main)
+Module: CMakeFiles/TEST.dir/main.c.obj(/home/jeremy/Repos/cspjst/DOSLIBC/src/main.c)
 0000:12b1+     test_types_
 0000:12b1*     test_env_
 0000:1446      main_
@@ -154,63 +154,61 @@ Module: /opt/watcom/lib286/dos/clibl.lib(i4d)
 0000:1476*     __I4D
 0000:14c5      __U4D
 Module: /opt/watcom/lib286/dos/clibl.lib(cstart)
-019a:0000*     __nullarea
-019a:0464*     __ovlflag
-019a:0465*     __intno
-019a:0466*     __ovlvec
+0199:0000*     __nullarea
+0199:0450*     __ovlflag
+0199:0451*     __intno
+0199:0452*     __ovlvec
 0000:154a      _cstart_
-0000:16fb      __exit_
-0000:1718      __do_exit_with_msg_
-0000:17f7      __GETDS
-Module: /opt/watcom/lib286/dos/clibl.lib(xmsg)
-0000:1801*     __exit_with_msg_
-0000:1806      __fatal_runtime_error_
-Module: /opt/watcom/lib286/dos/clibl.lib(cmain086)
-0000:1820      __CMain
-Module: /opt/watcom/lib286/dos/clibl.lib(initrtns)
-0000:1872      __InitRtns
-0000:1872*     __FInitRtns
-0000:18c9      __FiniRtns
-0000:18c9*     __FFiniRtns
+0000:16f5      __exit_
+0000:1712      __do_exit_with_msg_
+0000:17ef      __GETDS
+Module: /opt/watcom/lib286/dos/clibl.lib(xmsg.c)
+0000:17f9*     __exit_with_msg_
+0000:17fc      __fatal_runtime_error_
+Module: /opt/watcom/lib286/dos/clibl.lib(cmain086.c)
+0000:1815      __CMain
+Module: /opt/watcom/lib286/dos/clibl.lib(initrtns.c)
+0000:1863      __InitRtns
+0000:18ba      __FiniRtns
 Module: /opt/watcom/lib286/dos/clibl.lib(crwdata)
-019a:046a      __curbrk
-019a:0472      __STACKLOW
-019a:0474      __STACKTOP
-019a:0476      __cbyte
-019a:0478      __child
-019a:047a      __no87
-019a:0487      ___FPE_handler
-019a:046c      __psp
-019a:047b      __get_ovl_stack
-019a:047f      __restore_ovl_stack
-019a:0483      __close_ovl_file
-019a:048b      __LpCmdLine
-019a:048f      __LpPgmName
-019a:046e      __osmajor
-019a:046f      __osminor
-019a:0470      __osmode
-019a:0471      __HShift
-Module: /opt/watcom/lib286/dos/clibl.lib(uselfn)
-019a:0494      ___uselfn
+0199:0456      __curbrk
+0199:045e      __STACKLOW
+0199:0460      __STACKTOP
+0199:0462      __cbyte
+0199:0464      __child
+0199:0466      __no87
+0199:0473      ___FPE_handler
+0199:0458      __psp
+0199:0467      __get_ovl_stack
+0199:046b      __restore_ovl_stack
+0199:046f      __close_ovl_file
+0199:0477      __LpCmdLine
+0199:047b      __LpPgmName
+0199:045a      __osmajor
+0199:045b      __osminor
+0199:045c      __osmode
+0199:045d      __HShift
+Module: /opt/watcom/lib286/dos/clibl.lib(uselfn.c)
+0199:0480      ___uselfn
 Module: /opt/watcom/lib286/dos/clibl.lib(dosseg)
-0000:192a      __DOSseg__
-Module: /opt/watcom/lib286/dos/clibl.lib(enterdb)
-0000:192b      __EnterWVIDEO_
-019a:0496+     __WD_Present
-Module: /opt/watcom/lib286/dos/clibl.lib(___argc)
-019a:04a0      ____Argv
-019a:04a4      ____Argc
-Module: /opt/watcom/lib286/dos/clibl.lib(exit)
-0000:194f+     __null_int23_exit_
-0000:1950      exit_
-0000:197f*     _exit_
-019a:0498+     ___int23_exit
-019a:049c+     ___FPE_handler_exit
+0000:191a      __DOSseg__
+Module: /opt/watcom/lib286/dos/clibl.lib(enterdb.c)
+0000:191b      __EnterWVIDEO_
+0199:0482+     __WD_Present
+Module: /opt/watcom/lib286/dos/clibl.lib(___argc.c)
+0199:0488      ____Argv
+0199:048c      ____Argc
+Module: /opt/watcom/lib286/dos/clibl.lib(exit.c)
+0000:193f+     __null_int23_exit_
+0000:1940      exit_
+0000:196b*     _exit_
+0199:0484+     ___int23_exit
+0199:0486+     ___FPE_handler_exit
 Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
-019a:04a0      __Start_XI
-019a:04a0      __End_XI
-019a:04a0      __Start_YI
-019a:04a0      __End_YI
+0199:0488      __Start_XI
+0199:0488      __End_XI
+0199:0488      __Start_YI
+0199:0488      __End_YI
 
 
                         +--------------------+
@@ -225,6 +223,6 @@ Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
                         +-----------------------+
 
 Stack size:  0800 (2048.)
-Memory size:  2650 (9808.)
+Memory size:  2620 (9760.)
 Entry point address: 0000:154a
-Link time: 00:00.55
+Link time: 00:00.17

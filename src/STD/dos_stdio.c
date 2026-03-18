@@ -154,9 +154,9 @@ int fputc(int c, FILE* stream) {
         mov     cx, 1
         lea     dx, buffer
 
-        cmp     ax, 10      ; newline ascii
+        cmp     ax, 10      ; '\n'
         jne     PRN
-        inc     cx
+        inc     cx          ; write 2 bytes "\n\r"
 PRN:    mov     ah, DOS_WRITE_FILE_OR_DEVICE_USING_HANDLE
         int     DOS_SERVICE
         jnc     END

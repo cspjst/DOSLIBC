@@ -1,6 +1,10 @@
 #include "dos_environment.h"
+#include "dos_environment_constants.h"
 
-unsigned int dos_environment_is_dosbox() {
+#include "../STD/dos_string.h"
 
-    return 0;
+unsigned int dos_environment_is_DOSBox() {
+
+    char* p = (char*)memmem(MEM_BLOCK_ROM_BIOS.begin.ptr, 32, SEARCH_DOSBOX, 6);
+    if(p)
 }
