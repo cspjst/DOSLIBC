@@ -134,15 +134,12 @@ static int print_scientific(double val, bool uppercase, FILE* stream) {
 int fputc(int c, FILE* stream) {
     dos_file_handle_t handle = (dos_file_handle_t)(uintptr_t)stream;
     dos_error_code_t err = 0;
-    uint16_t nbytes = 1;
     //The fputc() function shall write the byte specified by c (converted to an unsigned char)
     unsigned char* p = (unsigned char*)&c;
     unsigned char buffer[2];
-
     if (c == '\n' && (stream == stdout || stream == stderr)) {
-        buffer[0] = '\r';
-        buffer[1] = '\n';
-        nbytes = 2;
+        buffer[0] = '\n';
+        buffer[1] = '\r';
     } else {
         buffer[0] = p[0];
     }
@@ -152,10 +149,15 @@ int fputc(int c, FILE* stream) {
        	pushf               ; not all BIOS functions are well behaved
         push    ds
 
+        mov     ax, c
         mov     bx, handle
-        mov     cx, nbytes
+        mov     cx, 1
         lea     dx, buffer
-        mov     ah, DOS_WRITE_FILE_OR_DEVICE_USING_HANDLE
+
+        cmp     ax, 10      ; newline ascii
+        jne     PRN
+        inc     cx
+PRN:    mov     ah, DOS_WRITE_FILE_OR_DEVICE_USING_HANDLE
         int     DOS_SERVICE
         jnc     END
         mov     err, ax
