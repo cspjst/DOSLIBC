@@ -546,6 +546,137 @@ void test_memcmp() {
     printf("memcmp() tests passed\n\n");
 }
 
+void test_memmem() {
+    const char* hay = "Hello World";
+    const char* needle = "World";
+    const char* empty = "";
+
+    // Basic found (middle of string)
+    assert(memmem(hay, 11, needle, 5) == (hay + 6));
+    printf("basic found ok\n");
+
+    // Basic not found
+    assert(memmem(hay, 11, "Mars", 4) == NULL);
+    printf("basic not found ok\n");
+
+    // Empty needle (POSIX: returns haystack)
+    assert(memmem(hay, 11, empty, 0) == (void*)hay);
+    assert(memmem("test", 4, "", 0) != NULL);
+    printf("empty needle ok\n");
+
+    // Empty haystack (non-empty needle)
+    assert(memmem(empty, 0, "A", 1) == NULL);
+    printf("empty haystack ok\n");
+
+    // Both empty (returns haystack)
+    assert(memmem(empty, 0, empty, 0) == (void*)empty);
+    printf("both empty ok\n");
+
+    // Needle larger than haystack
+    assert(memmem("Hi", 2, "Hello", 5) == NULL);
+    printf("needle > haystack ok\n");
+
+    // Exact match (full buffer)
+    assert(memmem("Exact", 5, "Exact", 5) != NULL);
+    printf("exact match ok\n");
+
+    // Single byte found
+    {
+        const char* abcde = "ABCDE";
+        assert(memmem(abcde, 5, "C", 1) == (abcde + 2));
+    }
+    printf("single byte found ok\n");
+    // Correction for specific string:
+    const char* abcde = "ABCDE";
+    assert(memmem(abcde, 5, "C", 1) == (abcde + 2));
+    printf("single byte found ok\n");
+
+    // Single byte not found
+    assert(memmem("ABCDE", 5, "Z", 1) == NULL);
+    printf("single byte not found ok\n");
+
+    // Binary data with null bytes (crucial vs strstr)
+    unsigned char bin_hay[] = {0x00, 0x01, 0x02, 0x03, 0x04};
+    unsigned char bin_need[] = {0x02, 0x03};
+    assert(memmem(bin_hay, 5, bin_need, 2) == (bin_hay + 2));
+    printf("binary nulls ok\n");
+
+    // Overlapping patterns (finds FIRST occurrence)
+    // "ANA" in "BANANA" -> Index 1 ("B[ANA]NA") NOT Index 3 ("BAN[ANA]")
+    const char* banana = "BANANA";
+    assert(memmem(banana, 6, "ANA", 3) == (banana + 1));
+    printf("overlap first ok\n");
+
+    // Overlapping pattern not found
+    assert(memmem("AAAA", 4, "AB", 2) == NULL);
+    printf("overlap not found ok\n");
+
+    // Null pointer handling (Haystack)
+    assert(memmem(NULL, 10, "A", 1) == NULL);
+    printf("null haystack ok\n");
+
+    // Null pointer handling (Needle)
+    assert(memmem("A", 1, NULL, 1) == NULL);
+    printf("null needle ok\n");
+
+    // Null pointer handling (Both NULL, non-zero size)
+    assert(memmem(NULL, 5, NULL, 5) == NULL);
+    printf("both null ok\n");
+
+    // Start of buffer
+    assert(memmem("Start", 5, "St", 2) != NULL);
+    printf("start of buffer ok\n");
+
+    // End of buffer
+    assert(memmem("End", 3, "nd", 2) != NULL);
+    printf("end of buffer ok\n");
+
+    // Case sensitivity (should be case-sensitive)
+    assert(memmem("Hello", 5, "hello", 5) == NULL);
+    assert(memmem("Hello", 5, "Hello", 5) != NULL);
+    printf("case sensitive ok\n");
+
+    // Repeated pattern (finds first)
+    const char* reps = "ABCABCABC";
+    assert(memmem(reps, 9, "ABC", 3) == reps);
+    printf("repeated first ok\n");
+
+    // Pattern longer than remaining buffer at end
+    assert(memmem("Short", 5, "Shorter", 7) == NULL);
+    printf("pattern too long ok\n");
+
+    // Far pointers (if supported by compiler/memory model)
+    // Using standard pointers here as memmem logic is agnostic,
+    // but in 8086 far pointers work automatically with void* if compiled correctly.
+    char far_hay[] = "Far Pointer Test Data";
+    char far_need[] = "Test";
+    assert(memmem(far_hay, 21, far_need, 4) != NULL);
+    printf("far pointers ok\n");
+
+    // Large buffer scan (performance sanity check)
+    char large[1000];
+    memset(large, 'A', 1000);
+    large[500] = 'X';
+    large[501] = 'Y';
+    large[502] = 'Z';
+    assert(memmem(large, 1000, "XYZ", 3) == (large + 500));
+    printf("large buffer ok\n");
+
+    // Byte-by-byte failure (mismatch at every step until the very last byte)
+    {
+        const char* almost = "AAAAAB";
+        assert(memmem(almost, 6, "B", 1) == (almost + 5));
+    }
+    printf("byte-by-byte ok\n");
+
+    // Mismatch on last byte of needle
+    {
+        assert(memmem("ABCDE", 5, "ABCDf", 5) == NULL);
+        printf("last byte mismatch ok\n");
+    }
+    printf("memmem() tests passed\n\n");
+}
+
 void test_string() {
     test_strlen();
     test_strcmp();
@@ -553,6 +684,7 @@ void test_string() {
     test_strncmp();
     test_memset();
     test_memcmp();
+    test_memmem();
 }
 
 #endif

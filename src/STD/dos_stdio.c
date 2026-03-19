@@ -198,7 +198,7 @@ int fprintf(FILE* stream, const char* format, ...) {
             continue;
         }
 
-        p++;  /* skip '%' */
+        p++; // skip %
 
         bool is_long = false;
         if (*p == 'l') {
@@ -235,12 +235,14 @@ int fprintf(FILE* stream, const char* format, ...) {
                 break;
 
             case 'p':
+                is_long = true;
             case 'x':
                 n = is_long ? print_hex(va_arg(args, unsigned long), false, stream)
                             : print_hex(va_arg(args, unsigned int), false, stream);
                 break;
 
             case 'P':
+                is_long = true;
             case 'X':
                 n = is_long ? print_hex(va_arg(args, unsigned long), true, stream)
                             : print_hex(va_arg(args, unsigned int), true, stream);
@@ -252,7 +254,6 @@ int fprintf(FILE* stream, const char* format, ...) {
                 break;
 
 #ifdef USE_DOSLIBC_FLOAT_PRINTF
-/*
             case 'f':
                 n = print_float(va_arg(args, double), stream);
                 break;
@@ -262,7 +263,6 @@ int fprintf(FILE* stream, const char* format, ...) {
             case 'E':
                 n = print_scientific(va_arg(args, double), true, stream);
                 break;
-*/
 #endif // USE_DOSLIBC_FLOAT_PRINTF
 
             case '%':

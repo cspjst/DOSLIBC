@@ -14,10 +14,15 @@ extern const dos_mem_block_t MEM_BLOCK_VIDEO_MONO_PAGE_0;
 extern const dos_mem_block_t MEM_BLOCK_VIDEO_COLOUR_PAGE_0;
 extern const dos_mem_block_t MEM_BLOCK_ROM_BIOS;
 
-extern const char SEARCH_DOSBOX[];
-extern const char SEARCH_DOSBOX_X[];
+extern const char SEARCH_DOSBOX[6];
+extern const char SEARCH_DOSBOX_X[8];
+#define SEARCH_SIZE_DOSBOX  128
 
-typedef enum
+typedef enum {
+    DOS_EMULATOR_NONE,
+    DOS_EMULATOR_DOSBOX,
+    DOS_EMULATOR_DOSBOX_X
+} dos_emulator_t;
 
 
 #endif

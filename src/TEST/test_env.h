@@ -12,6 +12,7 @@
 
 #include "../ENV/dos_environment_types.h"
 #include "../ENV/dos_environment_constants.h"
+#include "../ENV/dos_environment.h"
 #include "../DUMP/dos_dump_tools.h"
 #include "../DOS/dos_memory_constants.h"
 
@@ -27,7 +28,11 @@ void test_types() {
     assert(dos_dump_memory(MEM_BLOCK_ROM_BIOS, 16));
     assert(dos_dump_memory(MEM_BLOCK_IVT, 1));
 
-    printf("DOS environment types passed\n\n");
+    switch((int)dos_environment_is_DOSBox()) {
+        case DOS_EMULATOR_NONE: printf("No DOSBox emulator detected.\n"); break;
+        case DOS_EMULATOR_DOSBOX: printf("DOSBox emulation!\n"); break;
+        case DOS_EMULATOR_DOSBOX_X: printf("DOSBox-X emulation!\n"); break;
+    }
 }
 
 void test_env() {

@@ -3,8 +3,11 @@
 
 #include "../STD/dos_string.h"
 
-unsigned int dos_environment_is_DOSBox() {
-
-    char* p = (char*)memmem(MEM_BLOCK_ROM_BIOS.begin.ptr, 32, SEARCH_DOSBOX, 6);
-    if(p)
+dos_emulator_t dos_environment_is_DOSBox() {
+    void* p = memmem(MEM_BLOCK_ROM_BIOS.begin.ptr, SEARCH_SIZE_DOSBOX, SEARCH_DOSBOX, sizeof(SEARCH_DOSBOX));
+    if(!p) return DOS_EMULATOR_NONE;
+    if(memmem(MEM_BLOCK_ROM_BIOS.begin.ptr, SEARCH_SIZE_DOSBOX, SEARCH_DOSBOX_X, sizeof(SEARCH_DOSBOX_X))) {
+        return DOS_EMULATOR_DOSBOX_X;
+    }
+    return DOS_EMULATOR_DOSBOX;
 }
