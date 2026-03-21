@@ -30,7 +30,7 @@ void test_types() {
 
     switch((int)dos_environment_is_DOSBox()) {
         case DOS_EMULATOR_NONE: printf("No DOSBox emulator detected.\n"); break;
-        case DOS_EMULATOR_DOSBOX: printf("DOSBox emulation!\n"); break;
+        case DOS_EMULATOR_DOSBOX: printf("DOSBox/DOSBox Staging emulation!\n"); break;
         case DOS_EMULATOR_DOSBOX_X: printf("DOSBox-X emulation!\n"); break;
     }
 }

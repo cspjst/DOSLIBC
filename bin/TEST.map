@@ -1,7 +1,7 @@
 Open Watcom Linker Version 2.0 beta May  3 2025 18:23:37
 Copyright (c) 2002-2025 The Open Watcom Contributors. All Rights Reserved.
 Portions Copyright (c) 1985-2002 Sybase, Inc. All Rights Reserved.
-Created on:       26/03/19 12:36:38
+Created on:       26/03/19 12:38:18
 Executable Image: TEST.exe
 creating a DOS executable
 
@@ -13,7 +13,7 @@ creating a DOS executable
 Group                           Address              Size
 =====                           =======              ====
 
-DGROUP                          01a1:0000            00000ce0
+DGROUP                          01a1:0000            00000cf0
 
 
 
@@ -42,18 +42,18 @@ _TEXT                  CODE           AUTO           0000:14ec       00000521
 FAR_DATA               FAR_DATA       AUTO           01a0:000d       00000000
 _NULL                  BEGDATA        DGROUP         01a1:0000       00000020
 _AFTERNULL             BEGDATA        DGROUP         01a3:0000       00000002
-CONST                  DATA           DGROUP         01a3:0002       000003e6
-CONST2                 DATA           DGROUP         01e1:0008       0000007e
-_DATA                  DATA           DGROUP         01e9:0006       0000004e
-XIB                    DATA           DGROUP         01ee:0004       00000000
-XI                     DATA           DGROUP         01ee:0004       00000000
-XIE                    DATA           DGROUP         01ee:0004       00000000
-YIB                    DATA           DGROUP         01ee:0004       00000000
-YI                     DATA           DGROUP         01ee:0004       00000000
-YIE                    DATA           DGROUP         01ee:0004       00000000
-DATA                   DATA           DGROUP         01ee:0004       00000000
-_BSS                   BSS            DGROUP         01ee:0004       00000006
-STACK                  STACK          DGROUP         01ef:0000       00000800
+CONST                  DATA           DGROUP         01a3:0002       000003f5
+CONST2                 DATA           DGROUP         01e2:0008       0000007e
+_DATA                  DATA           DGROUP         01ea:0006       0000004e
+XIB                    DATA           DGROUP         01ef:0004       00000000
+XI                     DATA           DGROUP         01ef:0004       00000000
+XIE                    DATA           DGROUP         01ef:0004       00000000
+YIB                    DATA           DGROUP         01ef:0004       00000000
+YI                     DATA           DGROUP         01ef:0004       00000000
+YIE                    DATA           DGROUP         01ef:0004       00000000
+DATA                   DATA           DGROUP         01ef:0004       00000000
+_BSS                   BSS            DGROUP         01ef:0004       00000006
+STACK                  STACK          DGROUP         01f0:0000       00000800
 
 
                         +----------------+
@@ -113,16 +113,16 @@ Module: CMakeFiles/TEST.dir/DUMP/dos_dump_tools.c.obj(dos_dump_tools)
 Module: CMakeFiles/TEST.dir/ENV/dos_environment.c.obj(dos_environment)
 0000:0938      dos_environment_is_DOSBox_
 Module: CMakeFiles/TEST.dir/ENV/dos_environment_constants.c.obj(dos_environment_constants)
-01a1:042a      _MEM_BLOCK_IVT
-01a1:0432*     _MEM_BLOCK_BDA
-01a1:043a*     _MEM_BLOCK_VIDEO_MONO_PAGE_0
-01a1:0442*     _MEM_BLOCK_VIDEO_COLOUR_PAGE_0
-01a1:044a      _MEM_BLOCK_ROM_BIOS
-01a1:0452      _SEARCH_DOSBOX
-01a1:0458      _SEARCH_DOSBOX_X
+01a1:043a      _MEM_BLOCK_IVT
+01a1:0442*     _MEM_BLOCK_BDA
+01a1:044a*     _MEM_BLOCK_VIDEO_MONO_PAGE_0
+01a1:0452*     _MEM_BLOCK_VIDEO_COLOUR_PAGE_0
+01a1:045a      _MEM_BLOCK_ROM_BIOS
+01a1:0462      _SEARCH_DOSBOX
+01a1:0468      _SEARCH_DOSBOX_X
 Module: CMakeFiles/TEST.dir/STD/dos_errno.c.obj(dos_errno)
 0000:098f      dos_to_errno_
-01a1:048a      _errno
+01a1:049a      _errno
 Module: CMakeFiles/TEST.dir/STD/dos_stdio.c.obj(dos_stdio)
 0000:0b05      fputc_
 0000:0b8a+     fputs_
@@ -157,9 +157,9 @@ Module: /opt/watcom/lib286/dos/clibl.lib(i4d)
 0000:153b      __U4D
 Module: /opt/watcom/lib286/dos/clibl.lib(cstart)
 01a1:0000*     __nullarea
-01a1:0498*     __ovlflag
-01a1:0499*     __intno
-01a1:049a*     __ovlvec
+01a1:04a8*     __ovlflag
+01a1:04a9*     __intno
+01a1:04aa*     __ovlvec
 0000:15c0      _cstart_
 0000:1771      __exit_
 0000:178e      __do_exit_with_msg_
@@ -175,44 +175,44 @@ Module: /opt/watcom/lib286/dos/clibl.lib(initrtns)
 0000:193f      __FiniRtns
 0000:193f*     __FFiniRtns
 Module: /opt/watcom/lib286/dos/clibl.lib(crwdata)
-01a1:049e      __curbrk
-01a1:04a6      __STACKLOW
-01a1:04a8      __STACKTOP
-01a1:04aa      __cbyte
-01a1:04ac      __child
-01a1:04ae      __no87
-01a1:04bb      ___FPE_handler
-01a1:04a0      __psp
-01a1:04af      __get_ovl_stack
-01a1:04b3      __restore_ovl_stack
-01a1:04b7      __close_ovl_file
-01a1:04bf      __LpCmdLine
-01a1:04c3      __LpPgmName
-01a1:04a2      __osmajor
-01a1:04a3      __osminor
-01a1:04a4      __osmode
-01a1:04a5      __HShift
+01a1:04ae      __curbrk
+01a1:04b6      __STACKLOW
+01a1:04b8      __STACKTOP
+01a1:04ba      __cbyte
+01a1:04bc      __child
+01a1:04be      __no87
+01a1:04cb      ___FPE_handler
+01a1:04b0      __psp
+01a1:04bf      __get_ovl_stack
+01a1:04c3      __restore_ovl_stack
+01a1:04c7      __close_ovl_file
+01a1:04cf      __LpCmdLine
+01a1:04d3      __LpPgmName
+01a1:04b2      __osmajor
+01a1:04b3      __osminor
+01a1:04b4      __osmode
+01a1:04b5      __HShift
 Module: /opt/watcom/lib286/dos/clibl.lib(uselfn)
-01a1:04c8      ___uselfn
+01a1:04d8      ___uselfn
 Module: /opt/watcom/lib286/dos/clibl.lib(dosseg)
 0000:19a0      __DOSseg__
 Module: /opt/watcom/lib286/dos/clibl.lib(enterdb)
 0000:19a1      __EnterWVIDEO_
-01a1:04ca+     __WD_Present
+01a1:04da+     __WD_Present
 Module: /opt/watcom/lib286/dos/clibl.lib(___argc)
-01a1:04d4      ____Argv
-01a1:04d8      ____Argc
+01a1:04e4      ____Argv
+01a1:04e8      ____Argc
 Module: /opt/watcom/lib286/dos/clibl.lib(exit)
 0000:19c5+     __null_int23_exit_
 0000:19c6      exit_
 0000:19f5*     _exit_
-01a1:04cc+     ___int23_exit
-01a1:04d0+     ___FPE_handler_exit
+01a1:04dc+     ___int23_exit
+01a1:04e0+     ___FPE_handler_exit
 Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
-01a1:04d4      __Start_XI
-01a1:04d4      __End_XI
-01a1:04d4      __Start_YI
-01a1:04d4      __End_YI
+01a1:04e4      __Start_XI
+01a1:04e4      __End_XI
+01a1:04e4      __Start_YI
+01a1:04e4      __End_YI
 
 
                         +--------------------+
@@ -227,6 +227,6 @@ Module: /opt/watcom/lib286/dos/clibl.lib(sgdef086)
                         +-----------------------+
 
 Stack size:  0800 (2048.)
-Memory size:  26f0 (9968.)
+Memory size:  2700 (9984.)
 Entry point address: 0000:15c0
-Link time: 00:00.04
+Link time: 00:00.78
