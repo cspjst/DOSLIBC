@@ -1,4 +1,12 @@
-# DOSLIBC
+```
+██████╗  ██████╗ ███████╗██╗     ██╗██████╗  ██████╗
+██╔══██╗██╔═══██╗██╔════╝██║     ██║██╔══██╗██╔════╝
+██║  ██║██║   ██║███████╗██║     ██║██████╔╝██║     
+██║  ██║██║   ██║╚════██║██║     ██║██╔══██╗██║     
+██████╔╝╚██████╔╝███████║███████╗██║██████╔╝╚██████╗
+╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝╚═════╝  ╚═════╝
+ © Jeremy Simon Thornton 2026                                                   
+```
 _&lt;3KB freestanding C library for DOS._
 
 ![LOGOS/Size Comparison libc DOSLIBC vs Watcom.png](https://github.com/cspjst/RESOURCE/blob/main/LOGOS/Size%20Comparison%20libc%20DOSLIBC%20vs%20Watcom.png)
