@@ -1,10 +1,11 @@
 ```
-██████╗  ██████╗ ███████╗██╗     ██╗██████╗  ██████╗
-██╔══██╗██╔═══██╗██╔════╝██║     ██║██╔══██╗██╔════╝
-██║  ██║██║   ██║███████╗██║     ██║██████╔╝██║     
-██║  ██║██║   ██║╚════██║██║     ██║██╔══██╗██║     
-██████╔╝╚██████╔╝███████║███████╗██║██████╔╝╚██████╗
-╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚═╝╚═════╝  ╚═════╝
+██████╗  ██████╗ ███████╗███████╗████████╗██████╗ 
+██╔══██╗██╔═══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗
+██║  ██║██║   ██║███████╗███████╗   ██║   ██║  ██║
+██║  ██║██║   ██║╚════██║╚════██║   ██║   ██║  ██║
+██████╔╝╚██████╔╝███████║███████║   ██║   ██████╔╝
+╚═════╝  ╚═════╝ ╚══════╝╚══════╝   ╚═╝   ╚═════╝ 
+                                                  
  © Jeremy Simon Thornton 2026                                                   
 ```
 _&lt;3KB freestanding C library for DOS._
@@ -46,12 +47,12 @@ Control the binary size with three preprocessor defines.
 
 ### 1. Enable the Library
 ```c
-USE_DOSLIBC
+USE_DOSSTD
 ```
 
 ### 2. Enable Floating Point Printf
 ```c
-USE_DOSLIBC_FLOAT_PRINTF
+USE_DOSSTD_FLOAT_PRINTF
 ```
 Enables support for %f, %e, and %E in printf/fprintf.
 
@@ -61,7 +62,7 @@ Default: Disabled (Integer-only printing).
 
 ### 3. Enable File I/O
 ```c
-USE_DOSLIBC_FILE_IO
+USE_DOSSTD_FILE_IO
 ```
 Enables fopen, fclose, fread, fwrite, and stream buffering.
 
@@ -71,24 +72,18 @@ Default: Disabled (Console only).
 
 ## Example:
 (Look at the test harness files for more examples)
-``` C
+```c
 /**
 * @note Define switches BEFORE including headers, or pass via compiler flags
 */
-#ifdef USE_DOSLIBC
-    #include "dos_stdio.h"
-    #include "dos_stdlib.h"
-    #include "dos_string.h"
-#else
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <string.h>
-#endif
+#include "dos_stdio.h"
+#include "dos_stdlib.h"
+#include "dos_string.h"
 
 int main(void) {
     printf("Hello from DOSLIBC!\n");
     
-    #ifdef USE_DOSLIBC_FLOAT_PRINTF
+    #ifdef USE_DOSSTD_FLOAT_PRINTF
     printf("Pi approx: %f\n", 3.14159);
     #endif
     
