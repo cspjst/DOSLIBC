@@ -31,9 +31,6 @@ int main() {
     //test_dos_services();
     //test_dos_files();
 
-    // ENV
-    test_env();
-
 #ifdef USE_DOSLIBC
     printf("DOSLIBC Test Harness\n");
     // STD
@@ -44,5 +41,8 @@ int main() {
 #else
     printf("ERROR unable to test DOSLIBC no definition USE_DOSLIBC \n");
 #endif
+
+    // ENV
+    test_env();
 
 }
