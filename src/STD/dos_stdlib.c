@@ -1,5 +1,3 @@
-#ifdef USE_DOSLIBC
-
 #include "dos_stdlib.h"
 #include "../DOS/dos_memory_services.h"
 
@@ -42,5 +40,3 @@ void* dos_calloc(size_t n, size_t size) {         // overflow
     }
     return NULL;
 }
-
-#endif

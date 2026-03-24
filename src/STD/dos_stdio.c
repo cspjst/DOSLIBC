@@ -1,5 +1,3 @@
-#ifdef USE_DOSLIBC
-
 #include "dos_errno.h"
 #include "dos_stdio.h"
 #include "dos_string.h"
@@ -496,5 +494,3 @@ long ftell(FILE* stream) {
 }
 
 #endif // USE_DOSLIBC_FILE_IO
-
-#endif // USE_DOSLIBC

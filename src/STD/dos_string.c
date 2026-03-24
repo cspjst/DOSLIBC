@@ -1,5 +1,3 @@
-#ifdef USE_DOSLIBC
-
 #include "dos_string.h"
 #include "dos_errno.h"
 
@@ -123,5 +121,3 @@ const char* strerror(int errnum) {
         default:      return "Unknown error";
     }
 }
-
-#endif // USE_DOSLIBC

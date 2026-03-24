@@ -9,35 +9,27 @@
 #ifndef DOS_STDARG_H
 #define DOS_STDARG_H
 
-#ifdef USE_DOSLIBC
+/**
+* va_list is a NEAR pointer into the current stack frame (SS)
+*/
+typedef unsigned char near* va_list;
 
-    /**
-    * va_list is a NEAR pointer into the current stack frame (SS)
-    */
-    typedef unsigned char near* va_list;
+/**
+* va_arg: fetch value of 'type' from stack, advance ap
+* - sizeof(type) handles near(2)/far(4)/long(4)/double(8) correctly
+* - Comma operator ensures ap increments AFTER old value is used
+* - Cast to (type *) respects far/near qualifiers of the target type
+*/
+#define va_arg(ap, type) (*(type *)((ap) += sizeof(type), (ap) - sizeof(type)))
 
-    /**
-    * va_arg: fetch value of 'type' from stack, advance ap
-    * - sizeof(type) handles near(2)/far(4)/long(4)/double(8) correctly
-    * - Comma operator ensures ap increments AFTER old value is used
-    * - Cast to (type *) respects far/near qualifiers of the target type
-    */
-    #define va_arg(ap, type) (*(type *)((ap) += sizeof(type), (ap) - sizeof(type)))
+/**
+* va_start: similarly find the first value
+*/
+#define va_start(ap, last) ((ap) = (va_list)&(last) + sizeof(last))
 
-    /**
-    * va_start: similarly find the first value
-    */
-    #define va_start(ap, last) ((ap) = (va_list)&(last) + sizeof(last))
-
-    /**
-    * va_end: trivial void
-    */
-    #define va_end(ap) ((void)0)
-
-#else
-
-    #include <stdarg.h>
-
-#endif //USE_DOSLIBC
+/**
+* va_end: trivial void
+*/
+#define va_end(ap) ((void)0)
 
 #endif

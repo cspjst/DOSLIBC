@@ -5,8 +5,6 @@
 #ifndef DOS_STDDEF_H
 #define DOS_STDDEF_H
 
-#ifdef USE_DOSLIBC
-
     /**
     * 8086 large model: objects live within 64KB segments, ergo 16-bit sufficient
     */
@@ -26,11 +24,5 @@
     * Standard compatible implementation: treat address 0 as base, take member address
     */
     #define offsetof(type, member) ((size_t)&(((type*)0)->member))
-
-#else
-
-    #include <stddef.h>
-
-#endif //USE_DOSLIBC
 
 #endif

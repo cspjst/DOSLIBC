@@ -1,9 +1,12 @@
-#ifdef USE_DOSLIBC
-
+/**
+* @author      Jeremy Simon Thornton
+* @copyright   2024 Jeremy Simon Thornton
+* @version     0.1.0
+*/
 #include "dos_errno.h"
 #include "../DOS/dos_error_types.h"
 
-int errno = 0;
+int dos_errno = 0;
 
 #pragma pack(push, 1)
 static const int dos_to_errno_table[] = {
@@ -33,5 +36,3 @@ int dos_to_errno(dos_error_code_t dos_err) {
     if (dos_err >= sizeof(dos_to_errno_table)) return EINVAL;
     return dos_to_errno_table[dos_err];
 }
-
-#endif
