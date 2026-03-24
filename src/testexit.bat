@@ -1,5 +1,5 @@
 @echo off
-ED.EXE
+TEST.EXE
 IF ERRORLEVEL 1 GOTO FAIL       ; Any non-zero = fail
 echo PASS: Return code 0 verified
 GOTO END
