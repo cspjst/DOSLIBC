@@ -3,13 +3,13 @@
 
 #include "dos_assert.h"
 
-void* dos_malloc(size_t size) {
+void __far* dos_malloc(size_t size) {
     dos_address_t addr = {0};
     size = (uint16_t)((size + 15) >> 4); // convert to paragraphs (roundup)
     return (dos_allocate_memory_blocks(size, &addr.segoff.segment) == 0) ? addr.ptr : NULL;
 }
 
-void dos_free(void* p) {
+void dos_free(void __far* p) {
     if (p == NULL) return;
     dos_address_t addr = {0};
     addr.ptr = p;
